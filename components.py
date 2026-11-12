@@ -146,6 +146,72 @@ def triage_table(rows, n_total, n_hidden):
   <span>Thresholds are listed under “Why this was flagged”</span></div>"""
 
 
+def fmt(value, kind):
+    return {
+        "ils": lambda v: ils(v),
+        "pct0": lambda v: f"{v:.0%}",
+        "pct2": lambda v: f"{v:.2%}",
+        "num1": lambda v: f"{v:.1f}",
+        "num2": lambda v: f"{v:.2f}",
+        "int": lambda v: f"{int(v):,}",
+        "date": lambda v: date_iso(v),
+    }[kind](value)
+
+
+def detail_top(f, severity, breakdown, status_note=""):
+    s = theme.SEVERITY[severity]
+    platform = "Google Ads" if f.platform == "Google" else "Meta Ads"
+    rows = []
+    for i, (label, value, kind) in enumerate(breakdown):
+        cls = ' class="sum"' if i == len(breakdown) - 1 else ""
+        rows.append(f"<span{cls}>{escape(label)}</span><b{cls}>{fmt(value, kind)}</b>")
+    note = f'<span class="tag">{escape(status_note)}</span>' if status_note else ""
+    up = f.kind == "opportunity"
+    return f"""
+<div class="dh">
+  <div>{status_chip(severity)}{note}</div>
+  <h2>{escape(theme.ISSUE_TITLE[f.issue_type])} on {escape(f.campaign)}</h2>
+  <div class="meta">{plat_mark(f.platform)}{escape(f.account)} · {platform}</div>
+</div>
+<div class="sec">
+  <h3>{'Upside' if up else 'Money at stake'} <span>ILS</span></h3>
+  <div class="stake"><span class="big {s['css']}">{ils(f.money_at_risk_ils, sign=up)}</span>
+    <span class="hz">{escape(theme.HORIZON_LONG[f.issue_type])}</span></div>
+  <div class="kv">{''.join(rows)}</div>
+</div>"""
+
+
+def chart_heading(legend, window):
+    items = []
+    for label, kind, color in legend:
+        if kind == "blk":
+            items.append(f'<span><i class="blk" style="background:{color}"></i>{escape(label)}</span>')
+        elif kind == "dash":
+            items.append(f'<span><i class="dash" style="border-color:{color}"></i>{escape(label)}</span>')
+        else:
+            items.append(f'<span><i style="background:{color}"></i>{escape(label)}</span>')
+    return (f'<div class="sec chart-top"><h3>Evidence <span>{escape(window)}</span></h3>'
+            f'<div class="clegend">{"".join(items)}</div></div>')
+
+
+def detail_bottom(f, severity, numbers, rules, steps):
+    css = theme.SEVERITY[severity]["css"]
+    kv = "".join(f'<span>{escape(label)}</span><b class="{css if hl else ""}">{fmt(v, kind)}</b>'
+                 for label, v, kind, hl in numbers)
+    rule = "<br>".join(escape(line) for line in rules)
+    items = "".join(f"<li>{escape(text)}{' <span>' + escape(note) + '</span>' if note else ''}</li>"
+                    for text, note in steps)
+    return f"""
+<div class="sec chart-bottom"><div class="kv" style="margin-top:4px">{kv}</div></div>
+<div class="sec"><h3>Why this was flagged</h3><div class="rule">{rule}</div></div>
+<div class="sec"><h3>Recommended next steps</h3><ol class="steps">{items}</ol></div>"""
+
+
+def detail_empty():
+    return ('<div class="sec"><h3>No issue selected</h3>'
+            '<div class="muted">Select a row in the triage table to see its evidence.</div></div>')
+
+
 def page_header(summary):
     n = summary["n_accounts"]
     platforms = ", ".join("Google Ads" if p == "Google" else p for p in summary["platforms"])

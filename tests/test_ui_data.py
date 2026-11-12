@@ -122,3 +122,35 @@ def test_review_ids_round_trip():
     assert u.parse_ids("a,b") == ["a", "b"]
     assert u.toggle_id(["a"], "b") == ["a", "b"]
     assert u.toggle_id(["a", "b"], "a") == ["b"]
+
+
+# --- detail panel ---
+
+def test_money_breakdown_ends_with_the_detector_total(planted):
+    _, findings = planted
+    for f in findings:
+        rows = u.money_breakdown(f)
+        assert rows[-1][1:] == (f.money_at_risk_ils, "ils")
+        assert all(fmt in {"ils", "pct0", "pct2"} for _, _, fmt in rows)
+
+
+def test_tracking_breakdown_parts_sum_to_total(planted):
+    _, findings = planted
+    [f] = [f for f in findings if f.issue_type == "broken_tracking"]
+    gap, projection, total = (v for _, v, _ in u.money_breakdown(f))
+    assert gap == f.metrics["blind_spend"]
+    assert gap + projection == pytest.approx(total)
+
+
+def test_key_numbers_flag_exactly_one_anomaly(planted):
+    _, findings = planted
+    for f in findings:
+        rows = u.key_numbers(f)
+        assert sum(1 for *_, hl in rows if hl) == 1
+
+
+def test_client_summary_quotes_the_detector(planted):
+    _, findings = planted
+    for f in findings:
+        text = u.client_summary(f)
+        assert f.evidence in text and f"₪{f.money_at_risk_ils:,.0f}" in text

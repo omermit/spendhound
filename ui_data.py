@@ -151,6 +151,65 @@ def spark_series(df, f, days=SPARK_DAYS):
 
 
 # ---------------------------------------------------------------------------
+# Detail panel. Rows are (label, value, format) with format in: ils, pct0, pct2, num1, int, date, text.
+# ---------------------------------------------------------------------------
+
+def money_breakdown(f):
+    """How the money-at-stake figure is built. The last row is the total shown in the table."""
+    m, total = f.metrics, f.money_at_risk_ils
+    if f.issue_type == "broken_tracking":
+        rows = [(f"Spend during tracking gap, {m['zero_days']} days", m["blind_spend"], "ils"),
+                (f"Projected spend, next {d.TRACKING_PROJECTION_DAYS} days",
+                 total - m["blind_spend"], "ils")]
+    elif f.issue_type == "zero_conversion_burner":
+        rows = [(f"Spend, last {d.BURNER_WINDOW_DAYS} days", m["spend"], "ils"),
+                ("Average daily spend", m["daily_spend"], "ils")]
+    elif f.issue_type == "overpacing":
+        rows = [("Spent this month so far", m["mtd_spend"], "ils"),
+                ("Projected spend this month", m["projected"], "ils"),
+                ("Monthly budget", m["budget"], "ils")]
+    elif f.issue_type == "creative_fatigue":
+        rows = [("CTR at start of trend", m["ctr_start"], "pct2"),
+                ("CTR now (trend)", m["ctr_end"], "pct2"),
+                ("Fewer clicks for the same budget", m["decline"], "pct0")]
+    else:
+        rows = [("Daily budget cap", m["daily_cap"], "ils"),
+                ("Extra spend if budget doubles, per month", m["daily_cap"] * d.PROJECTION_DAYS, "ils")]
+    label = "Net gain per month" if f.kind == "opportunity" else "Total at stake"
+    return rows + [(label, total, "ils")]
+
+
+def key_numbers(f):
+    """(label, value, format, highlight) under the evidence chart; highlight marks the anomaly."""
+    m = f.metrics
+    if f.issue_type == "broken_tracking":
+        return [("Conversions before the gap, daily average", m["baseline_conversions"], "num1", False),
+                (f"Conversions, last {m['zero_days']} days", 0, "int", True),
+                (f"Clicks vs. {d.TRACKING_BASELINE_DAYS}-day baseline", m["click_ratio"], "pct0", False)]
+    if f.issue_type == "zero_conversion_burner":
+        return [(f"Spend, last {d.BURNER_WINDOW_DAYS} days", m["spend"], "ils", False),
+                (f"Conversions, last {d.BURNER_WINDOW_DAYS} days", m["conversions"], "int", True)]
+    if f.issue_type == "overpacing":
+        return [(f"Run rate, last {d.OVERPACE_RUN_RATE_DAYS} days, per day", m["run_rate"], "ils", False),
+                ("Projected spend vs. budget", m["projected"] / m["budget"], "pct0", True),
+                ("Budget runs out around", m["runs_out"], "date", False)]
+    if f.issue_type == "creative_fatigue":
+        return [(f"CTR decline over {d.FATIGUE_WINDOW_DAYS} days", m["decline"], "pct0", True),
+                ("Trend fit (R²)", m["r2"], "num2", False)]
+    return [(f"ROAS, last {d.WINNER_WINDOW_DAYS} days", m["roas"], "num1", True),
+            ("ROAS, rest of account", m["others_roas"], "num1", False),
+            (f"Days at budget cap, last {d.WINNER_CAP_DAYS}", m["capped_share"], "pct0", False)]
+
+
+def client_summary(f):
+    """Plain-text note for a client. Quotes detector output only; adds no new figures."""
+    return (f"{theme.ISSUE_TITLE[f.issue_type]} on {f.campaign} ({f.account}, {f.platform}).\n"
+            f"{f.evidence}\n"
+            f"Money at stake: ₪{f.money_at_risk_ils:,.0f} ({f.money_note}).\n"
+            f"Next step: {f.action}")
+
+
+# ---------------------------------------------------------------------------
 # Review state carried in the URL (comma-separated finding ids)
 # ---------------------------------------------------------------------------
 

@@ -13,6 +13,7 @@ from urllib.parse import urlencode
 
 import streamlit as st
 
+import charts as ch
 import components as c
 import detectors as d
 import theme
@@ -122,6 +123,39 @@ with left:
             } for f in visible]
             st.html(c.triage_table(rows, len(findings), len(snoozed)))
 
+def set_review_state(param, ids):
+    """Persist reviewed/snoozed ids in the URL so they survive row clicks (page reloads)."""
+    if ids:
+        st.query_params[param] = ",".join(ids)
+    elif param in st.query_params:
+        del st.query_params[param]
+
+
 with right:
     with st.container(key="detail"):
-        st.html('<div class="sec">Detail panel</div>')
+        f = u.find_by_id(findings, selected_id) if selected_id else None
+        if f is None:
+            st.html(c.detail_empty())
+        else:
+            sev, fid = u.severity_of(f), selected_id
+            note = "Snoozed for 7 days" if fid in snoozed else ("Reviewed" if fid in reviewed else "")
+            st.html(c.detail_top(f, sev, u.money_breakdown(f), note))
+            fig, legend, window = ch.evidence_chart(df, f)
+            st.html(c.chart_heading(legend, window))
+            st.plotly_chart(fig, config=theme.PLOTLY_CONFIG, key=f"chart-{fid}")
+            st.html(c.detail_bottom(f, sev, u.key_numbers(f), theme.rule_lines(f.issue_type),
+                                    theme.NEXT_STEPS[f.issue_type]))
+            with st.container(key="dfoot", horizontal=True):
+                if st.button("Undo review" if fid in reviewed else "Mark reviewed",
+                             type="primary", key="b_review"):
+                    set_review_state("reviewed", u.toggle_id(reviewed, fid))
+                    st.rerun()
+                if st.button("Unsnooze" if fid in snoozed else "Snooze 7d", key="b_snooze"):
+                    set_review_state("snoozed", u.toggle_id(snoozed, fid))
+                    st.rerun()
+                if st.button("Copy for client", type="tertiary", key="b_client"):
+                    st.session_state.show_client = not st.session_state.get("show_client", False)
+            if st.session_state.get("show_client"):
+                with st.container(key="client_text"):
+                    st.html('<div class="note-line">Use the copy icon to copy this note.</div>')
+                    st.code(u.client_summary(f), language=None, wrap_lines=True)
