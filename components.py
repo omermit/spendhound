@@ -212,6 +212,34 @@ def detail_empty():
             '<div class="muted">Select a row in the triage table to see its evidence.</div></div>')
 
 
+def accounts_table(rows):
+    letters = {"critical": "c", "warning": "w", "opportunity": "o"}
+    body = []
+    for r in rows:
+        chips = "".join(
+            f'<span class="{letters[s] if n else "z"}" title="{n} {theme.SEVERITY[s]["label"].lower()}">{n}</span>'
+            for s, n in r["counts"].items())
+        color = theme.SEVERITY[r["bar_severity"]]["solid"] if r["bar_severity"] else theme.BORDER_STRONG
+        body.append(f"""<tr>
+  <td class="t1">{escape(r['account'])}</td>
+  <td class="muted">{escape(', '.join(r['platforms']))}</td>
+  <td class="num">{ils(r['spend'])}</td>
+  <td class="num{' risk' if r['at_risk'] else ''}">{ils(r['at_risk'])}</td>
+  <td class="num"><div class="pct">{pct(r['share'])}<div class="track">
+    <div class="fill" style="width:{r['bar_fill'] * 100:.1f}%;background:{color}"></div></div></div></td>
+  <td class="num"><span class="pill-n">{chips}</span></td>
+</tr>""")
+    return f"""
+<div class="sect-h"><h2>Accounts</h2><span>Last 30 days · open issues: critical, warning, opportunity</span></div>
+<table class="tbl acct">
+  <colgroup><col><col style="width:130px"><col style="width:120px"><col style="width:110px">
+    <col style="width:220px"><col style="width:130px"></colgroup>
+  <thead><tr><th>Account</th><th>Platforms</th><th class="num">Spend</th><th class="num">At risk</th>
+    <th class="num">Share of spend at risk</th><th class="num">Open issues</th></tr></thead>
+  <tbody>{''.join(body)}</tbody>
+</table>"""
+
+
 def page_header(summary):
     n = summary["n_accounts"]
     platforms = ", ".join("Google Ads" if p == "Google" else p for p in summary["platforms"])

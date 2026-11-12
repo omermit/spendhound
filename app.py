@@ -123,6 +123,9 @@ with left:
             } for f in visible]
             st.html(c.triage_table(rows, len(findings), len(snoozed)))
 
+        with st.container(key="accounts"):
+            st.html(c.accounts_table(u.account_rows(df, findings)))
+
 def set_review_state(param, ids):
     """Persist reviewed/snoozed ids in the URL so they survive row clicks (page reloads)."""
     if ids:

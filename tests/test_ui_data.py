@@ -154,3 +154,26 @@ def test_client_summary_quotes_the_detector(planted):
     for f in findings:
         text = u.client_summary(f)
         assert f.evidence in text and f"₪{f.money_at_risk_ils:,.0f}" in text
+
+
+# --- accounts table ---
+
+def test_account_rows_add_up_to_the_kpis(planted):
+    df, findings = planted
+    rows = u.account_rows(df, findings)
+    k = u.kpis(df, findings)
+    assert len(rows) == k["n_accounts"]
+    assert sum(r["spend"] for r in rows) == pytest.approx(k["spend_30d"])
+    assert sum(r["at_risk"] for r in rows) == pytest.approx(k["at_risk"])
+    assert sum(sum(r["counts"].values()) for r in rows) == len(findings)
+    assert [r["at_risk"] for r in rows] == sorted((r["at_risk"] for r in rows), reverse=True)
+    for r in rows:
+        assert r["share"] == pytest.approx(r["at_risk"] / r["spend"])
+        assert 0 <= r["bar_fill"] <= 1
+
+
+def test_account_rows_on_clean_data_have_no_risk(clean):
+    df, findings = clean
+    for r in u.account_rows(df, findings):
+        assert r["at_risk"] == 0 and r["bar_severity"] is None
+        assert sum(r["counts"].values()) == 0

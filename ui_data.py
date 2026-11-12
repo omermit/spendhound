@@ -221,6 +221,38 @@ def toggle_id(ids, issue_id):
     return [i for i in ids if i != issue_id] if issue_id in ids else [*ids, issue_id]
 
 
+# ---------------------------------------------------------------------------
+# Accounts table
+# ---------------------------------------------------------------------------
+
+SHARE_BAR_FULL = 0.25   # the share-of-spend bar is full at 25%: higher is "on fire" either way
+
+
+def account_rows(df, findings):
+    """One row per account (last 30 days), biggest money at risk first."""
+    spend = d.campaign_summary(df, days=KPI_SPEND_DAYS).groupby("account")["cost"].sum()
+    rows = []
+    for account in sorted(df["account"].unique()):
+        mine = [f for f in findings if f.account == account]
+        risk = [f for f in mine if f.kind == "risk"]
+        at_risk = float(sum(f.money_at_risk_ils for f in risk))
+        acct_spend = float(spend.get(account, 0.0))
+        share = at_risk / acct_spend if acct_spend else 0.0
+        worst = next((s for s in theme.SEVERITY_ORDER if any(severity_of(f) == s for f in risk)), None)
+        platforms = [p for p in PLATFORM_ORDER if p in set(df.loc[df["account"] == account, "platform"])]
+        rows.append({
+            "account": account,
+            "platforms": platforms,
+            "spend": acct_spend,
+            "at_risk": at_risk,
+            "share": share,
+            "bar_fill": min(share / SHARE_BAR_FULL, 1.0),
+            "bar_severity": worst,
+            "counts": severity_counts(mine),
+        })
+    return sorted(rows, key=lambda r: -r["at_risk"])
+
+
 def export_frame(findings):
     """Findings as a flat table for the CSV export, in triage order."""
     return pd.DataFrame([{
