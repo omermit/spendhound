@@ -85,8 +85,8 @@ with left:
             with st.container(key="toolbar", horizontal=True, vertical_alignment="center"):
                 st.segmented_control(
                     "Severity", ["all", *theme.SEVERITY_ORDER], key="f_sev",
-                    format_func=lambda s: f"All {len(base)}" if s == "all"
-                    else f"{theme.SEVERITY[s]['label']} {counts[s]}",
+                    format_func=lambda s: f"All :gray[**{len(base)}**]" if s == "all"
+                    else f"{theme.SEVERITY[s]['label']} :gray[**{counts[s]}**]",
                     label_visibility="collapsed")
                 st.selectbox("Account", ["All accounts", *accounts], key="f_account",
                              format_func=lambda a: f"Account: {a}", label_visibility="collapsed")

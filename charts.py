@@ -30,7 +30,8 @@ def _band(fig, x0, x1, sev, text):
     fig.add_vrect(x0=x0, x1=x1, fillcolor=sev["tint"], opacity=1, line_width=0, layer="below")
     fig.add_annotation(x=x0, y=1, xref="x", yref="paper", text=text, showarrow=False,
                        xanchor="right", yanchor="top", xshift=-6,
-                       font=dict(size=11, color=sev["text"], family=theme.FONT))
+                       font=dict(size=11, color=sev["text"], family=theme.FONT),
+                       bgcolor="rgba(255,255,255,0.85)", borderpad=2)
 
 
 def _last(rows, today, days):

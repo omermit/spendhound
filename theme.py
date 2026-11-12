@@ -134,13 +134,13 @@ def rule_lines(issue_type):
     low, high = d.TRACKING_CLICK_BAND
     rules = {
         "broken_tracking": [
-            f"conversions == 0 for >= {d.TRACKING_MIN_ZERO_DAYS} consecutive days",
+            f"conversions == 0 for ≥ {d.TRACKING_MIN_ZERO_DAYS} consecutive days",
             f"AND clicks between {low:.0%} and {high:.0%} of the {d.TRACKING_BASELINE_DAYS}-day baseline",
-            f"AND baseline >= {d.TRACKING_MIN_BASELINE_CONV} conversions per day",
+            f"AND baseline ≥ {d.TRACKING_MIN_BASELINE_CONV} conversions per day",
         ],
         "zero_conversion_burner": [
-            f"spend >= ₪{d.BURNER_MIN_SPEND:,} in the last {d.BURNER_WINDOW_DAYS} days",
-            f"AND conversions <= {d.BURNER_MAX_CONVERSIONS} in the same window",
+            f"spend ≥ ₪{d.BURNER_MIN_SPEND:,} in the last {d.BURNER_WINDOW_DAYS} days",
+            f"AND conversions ≤ {d.BURNER_MAX_CONVERSIONS} in the same window",
         ],
         "overpacing": [
             "projected month spend > "
@@ -149,13 +149,13 @@ def rule_lines(issue_type):
             f"only from day {d.OVERPACE_MIN_DAYS_ELAPSED} of the month",
         ],
         "creative_fatigue": [
-            f"CTR trend over {d.FATIGUE_WINDOW_DAYS} days down >= {d.FATIGUE_MIN_DECLINE:.0%}",
-            f"AND trend fit R² >= {d.FATIGUE_MIN_R2:.2f}",
+            f"CTR trend over {d.FATIGUE_WINDOW_DAYS} days down ≥ {d.FATIGUE_MIN_DECLINE:.0%}",
+            f"AND trend fit R² ≥ {d.FATIGUE_MIN_R2:.2f}",
         ],
         "underfunded_winner": [
-            f"ROAS ({d.WINNER_WINDOW_DAYS}d) >= {d.WINNER_MIN_ROAS:g}",
-            f"AND >= {d.WINNER_MIN_ROAS_MULTIPLE:g}x the rest of the account",
-            f"AND spend >= {d.WINNER_CAP_SHARE:.0%} of daily cap on >= "
+            f"ROAS ({d.WINNER_WINDOW_DAYS}d) ≥ {d.WINNER_MIN_ROAS:g}",
+            f"AND ≥ {d.WINNER_MIN_ROAS_MULTIPLE:g}x the rest of the account",
+            f"AND spend ≥ {d.WINNER_CAP_SHARE:.0%} of daily cap on ≥ "
             f"{d.WINNER_MIN_CAPPED_DAY_SHARE:.0%} of the last {d.WINNER_CAP_DAYS} days",
         ],
     }
