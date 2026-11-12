@@ -82,3 +82,43 @@ def test_export_has_one_row_per_finding_in_triage_order(planted):
     out = u.export_frame(findings)
     assert len(out) == len(findings)
     assert list(out["money_at_stake_ils"]) == [f.money_at_risk_ils for f in findings]
+
+
+# --- triage table ---
+
+def test_filters_narrow_by_severity_account_platform_search_and_hidden(planted):
+    _, findings = planted
+    assert u.filter_findings(findings) == findings
+    crit = u.filter_findings(findings, severity="critical")
+    assert len(crit) == 2 and all(u.severity_of(f) == "critical" for f in crit)
+    one = findings[0]
+    assert one in u.filter_findings(findings, account=one.account, platform=one.platform)
+    assert u.filter_findings(findings, query=one.campaign.upper()) == [one]
+    assert u.filter_findings(findings, query="no such campaign") == []
+    assert one not in u.filter_findings(findings, hidden={u.finding_id(one)})
+
+
+def test_signal_line_quotes_detector_numbers(planted):
+    _, findings = planted
+    for f in findings:
+        line = u.signal_line(f)
+        assert line and "\n" not in line
+    [over] = [f for f in findings if f.issue_type == "overpacing"]
+    m = over.metrics
+    assert f"{m['projected'] / m['budget'] - 1:+.0%}" in u.signal_line(over)
+
+
+def test_spark_series_is_14_days_and_cumulative_for_overpacing(planted):
+    df, findings = planted
+    for f in findings:
+        assert len(u.spark_series(df, f)) == u.SPARK_DAYS
+    [over] = [f for f in findings if f.issue_type == "overpacing"]
+    s = u.spark_series(df, over)
+    assert s == sorted(s)           # cumulative spend never goes down
+
+
+def test_review_ids_round_trip():
+    assert u.parse_ids("") == [] and u.parse_ids(None) == []
+    assert u.parse_ids("a,b") == ["a", "b"]
+    assert u.toggle_id(["a"], "b") == ["a", "b"]
+    assert u.toggle_id(["a", "b"], "a") == ["b"]

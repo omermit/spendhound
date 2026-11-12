@@ -92,6 +92,76 @@ def kpis(df, findings):
     }
 
 
+# ---------------------------------------------------------------------------
+# Triage table
+# ---------------------------------------------------------------------------
+
+SPARK_DAYS = 14
+
+# What the 14-day sparkline plots for each issue type, and whether its last point is the anomaly.
+SPARK_METRIC = {
+    "broken_tracking": ("conversions", True),
+    "zero_conversion_burner": ("cost", False),
+    "overpacing": ("cumulative_cost", True),
+    "creative_fatigue": ("ctr", True),
+    "underfunded_winner": ("roas", False),
+}
+
+
+def filter_findings(findings, severity="all", account=None, platform=None, query="", hidden=()):
+    q = (query or "").strip().lower()
+    return [f for f in findings
+            if (severity in (None, "all") or severity_of(f) == severity)
+            and (account in (None, "All accounts") or f.account == account)
+            and (platform in (None, "All") or f.platform == platform)
+            and (not q or q in f.campaign.lower() or q in f.account.lower()
+                 or q in theme.ISSUE_TITLE[f.issue_type].lower())
+            and finding_id(f) not in hidden]
+
+
+def signal_line(f):
+    """One-line evidence for the table, built only from numbers the detector returned."""
+    m = f.metrics
+    if f.issue_type == "broken_tracking":
+        return (f"0 conversions for {m['zero_days']} days · clicks at "
+                f"{m['click_ratio']:.0%} of normal")
+    if f.issue_type == "zero_conversion_burner":
+        n = m["conversions"]
+        return (f"₪{m['spend']:,.0f} spent in {d.BURNER_WINDOW_DAYS} days · "
+                f"{n} conversion{'s' if n != 1 else ''}")
+    if f.issue_type == "overpacing":
+        return (f"Projected ₪{m['projected']:,.0f} vs ₪{m['budget']:,.0f} monthly budget "
+                f"({m['projected'] / m['budget'] - 1:+.0%})")
+    if f.issue_type == "creative_fatigue":
+        return (f"CTR down {m['decline']:.0%} over {d.FATIGUE_WINDOW_DAYS} days "
+                f"({m['ctr_start']:.2%} → {m['ctr_end']:.2%})")
+    if f.issue_type == "underfunded_winner":
+        return (f"ROAS {m['roas']:.1f} vs {m['others_roas']:.1f} rest of account · "
+                f"budget-capped {m['capped_share']:.0%} of the last {d.WINNER_CAP_DAYS} days")
+    return f.evidence
+
+
+def spark_series(df, f, days=SPARK_DAYS):
+    """The last `days` daily values of the metric that shows this issue best."""
+    metric, _ = SPARK_METRIC[f.issue_type]
+    rows = d.daily_series(df, f.account, f.campaign).tail(days)
+    if metric == "cumulative_cost":
+        return rows["cost"].cumsum().tolist()
+    return rows[metric].tolist()
+
+
+# ---------------------------------------------------------------------------
+# Review state carried in the URL (comma-separated finding ids)
+# ---------------------------------------------------------------------------
+
+def parse_ids(value):
+    return [i for i in (value or "").split(",") if i]
+
+
+def toggle_id(ids, issue_id):
+    return [i for i in ids if i != issue_id] if issue_id in ids else [*ids, issue_id]
+
+
 def export_frame(findings):
     """Findings as a flat table for the CSV export, in triage order."""
     return pd.DataFrame([{

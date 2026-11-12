@@ -3,14 +3,24 @@ HTML builders for the dashboard. Rendering only: values arrive already computed
 (from detectors.py or ui_data.py) and are only formatted here.
 """
 
+import base64
 from html import escape
 
 import theme
 
-CHEVRON = ('<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 4 5 6.5 7.5 4" '
-           'stroke="#7A8496" stroke-width="1.4" fill="none"/></svg>')
-LOGO = ('<svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 10.5 5.2 6.8 7.6 9 12 3.5" '
-        'stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+def svg_img(svg, w, h, alt=""):
+    """st.html sanitizes inline <svg>, so SVGs are embedded as data-URI images instead."""
+    if 'xmlns=' not in svg:
+        svg = svg.replace("<svg ", '<svg xmlns="http://www.w3.org/2000/svg" ', 1)
+    data = base64.b64encode(svg.encode("utf-8")).decode("ascii")
+    return (f'<img src="data:image/svg+xml;base64,{data}" width="{w}" height="{h}" '
+            f'alt="{escape(alt)}" style="display:block">')
+
+CHEVRON = svg_img('<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 4 5 6.5 7.5 4" '
+           'stroke="#7A8496" stroke-width="1.4" fill="none"/></svg>', 10, 10)
+LOGO = svg_img('<svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 10.5 5.2 6.8 7.6 9 12 3.5" '
+        'stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>', 14, 14)
 
 
 def ils(x, sign=False):
@@ -70,6 +80,70 @@ def kpi_strip(k):
     <div class="v">{k['accounts_affected']} <small>/ {k['n_accounts']}</small></div>
     <div class="d">Accounts with at least one issue</div></div>
 </section>"""
+
+
+def status_chip(severity):
+    s = theme.SEVERITY[severity]
+    icon = svg_img(f'<svg width="10" height="10" viewBox="0 0 10 10">'
+                   f'{s["icon"].replace("currentColor", s["solid"])}</svg>', 10, 10)
+    return f'<span class="status {s["css"]}">{icon}{s["label"]}</span>'
+
+
+def plat_mark(platform):
+    css, letter = ("meta", "M") if platform == "Meta" else ("goog", "G")
+    return f'<span class="plat {css}" title="{escape(platform)}">{letter}</span>'
+
+
+def sparkline(values, highlight_last, color, w=80, h=24, pad=2):
+    """Inline SVG polyline; values are scaled to the box (drawing only, not data math)."""
+    lo, hi = min(values), max(values)
+    span = (hi - lo) or 1
+    step = (w - 2) / max(len(values) - 1, 1)
+    pts = [(1 + i * step, pad + (h - 2 * pad) * (1 - (v - lo) / span)) for i, v in enumerate(values)]
+    poly = " ".join(f"{x:.1f},{y:.1f}" for x, y in pts)
+    dot = (f'<circle cx="{pts[-1][0]:.1f}" cy="{pts[-1][1]:.1f}" r="2.2" fill="{color}"/>'
+           if highlight_last else "")
+    return svg_img(f'<svg width="{w}" height="{h}" viewBox="0 0 {w} {h}">'
+                   f'<polyline points="{poly}" fill="none" stroke="{theme.SPARK_LINE}" stroke-width="1.5" '
+                   f'stroke-linejoin="round" stroke-linecap="round"/>{dot}</svg>', w, h)
+
+
+def triage_table(rows, n_total, n_hidden):
+    """rows: dicts with finding, severity, signal, spark, highlight, href, selected, reviewed."""
+    body = []
+    for r in rows:
+        f, sev = r["finding"], r["severity"]
+        a = f'<a class="rowlink" href="{escape(r["href"])}">'
+        up = f.kind == "opportunity"
+        cls = " ".join(x for x in ("selected" if r["selected"] else "",
+                                   "reviewed" if r["reviewed"] else "") if x)
+        tag = '<span class="tag">Reviewed</span>' if r["reviewed"] else ""
+        body.append(f"""<tr class="{cls}">
+  <td>{a}{status_chip(sev)}</a></td>
+  <td>{a}<div class="t1">{escape(theme.ISSUE_TITLE[f.issue_type])}{tag}</div>
+      <div class="t2 sig">{escape(r['signal'])}</div></a></td>
+  <td>{a}<div class="t1 mono-ish">{escape(f.campaign)}</div>
+      <div class="t2">{plat_mark(f.platform)}{escape(f.account)}</div></a></td>
+  <td>{a}{sparkline(r['spark'], r['highlight'], theme.SEVERITY[sev]['solid'])}</a></td>
+  <td class="num muted">{a}—</a></td>
+  <td class="num">{a}<div class="amt{' up' if up else ''}">{ils(f.money_at_risk_ils, sign=up)}</div>
+      <div class="t2 r">{escape(theme.HORIZON_SHORT[f.issue_type])}</div></a></td>
+</tr>""")
+    if not rows:
+        body.append('<tr><td colspan="6" class="empty">No issues match these filters.</td></tr>')
+    n = len(rows)
+    hidden = f" · {n_hidden} snoozed, hidden" if n_hidden else ""
+    shown = f"{n} of {n_total} issues" if n != n_total else f"{n} issue{'s' if n != 1 else ''}"
+    return f"""
+<table class="tbl triage">
+  <colgroup><col style="width:128px"><col><col style="width:220px"><col style="width:104px">
+    <col style="width:56px"><col style="width:150px"></colgroup>
+  <thead><tr><th>Severity</th><th>Issue and signal</th><th>Campaign and account</th>
+    <th>14-day trend</th><th class="num">Open</th><th class="num sorted">At stake ↓</th></tr></thead>
+  <tbody>{''.join(body)}</tbody>
+</table>
+<div class="tfoot"><span>{shown}{hidden} · sorted by money at stake</span>
+  <span>Thresholds are listed under “Why this was flagged”</span></div>"""
 
 
 def page_header(summary):
