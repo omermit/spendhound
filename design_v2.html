@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Spendhound — Triage (design v2)</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Neutrals */
+  --bg:#F4F5F7; --surface:#FFFFFF; --surface-2:#F9FAFB; --border:#E3E6EB; --border-strong:#CDD2DA;
+  --ink:#16202E; --ink-2:#4A5568; --ink-3:#7A8496; --ink-4:#A3ABB8;
+  /* Brand / interactive */
+  --brand:#14213D; --action:#1D5FD6; --action-hover:#174EB3; --action-tint:#EAF1FD; --focus:#8FB2F0;
+  /* Severity (text / tint / border) */
+  --crit:#B42318; --crit-tint:#FEF0EF; --crit-line:#F6C9C5; --crit-solid:#D1342F;
+  --warn:#9A4A00; --warn-tint:#FFF5E6; --warn-line:#F7D9AE; --warn-solid:#D97706;
+  --opp:#11663A; --opp-tint:#ECF8F0; --opp-line:#BFE5CD; --opp-solid:#15803D;
+  /* Shape & elevation */
+  --r-sm:4px; --r-md:6px; --r-lg:8px;
+  --e1:0 1px 2px rgba(16,24,40,.05); --e2:0 1px 3px rgba(16,24,40,.08),0 4px 12px rgba(16,24,40,.06);
+  --font:"IBM Plex Sans", "IBM Plex Sans Hebrew", -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:400 13px/1.45 var(--font); -webkit-font-smoothing:antialiased; }
+.num, .amt, .kv b, .kpi .v, .acct td { font-variant-numeric: tabular-nums; }
+
+/* App bar */
+.appbar { height:52px; background:var(--surface); border-bottom:1px solid var(--border); display:flex; align-items:center; padding:0 24px; gap:28px; }
+.logo { display:flex; align-items:center; gap:9px; font-weight:600; font-size:15px; letter-spacing:-.01em; color:var(--brand); }
+.logo .mark { width:24px; height:24px; border-radius:5px; background:var(--brand); display:grid; place-items:center; }
+.ws { display:flex; align-items:center; gap:6px; padding:5px 10px; border:1px solid var(--border); border-radius:var(--r-md); color:var(--ink-2); font-weight:500; }
+.nav { display:flex; gap:4px; height:100%; }
+.nav a { display:flex; align-items:center; padding:0 12px; color:var(--ink-2); text-decoration:none; font-weight:500; border-bottom:2px solid transparent; }
+.nav a.on { color:var(--ink); border-bottom-color:var(--action); }
+.nav .cnt { margin-left:6px; background:#E9ECF1; color:var(--ink-2); border-radius:9px; padding:0 6px; font-size:11px; font-weight:600; }
+.appbar .right { margin-left:auto; display:flex; align-items:center; gap:16px; color:var(--ink-3); }
+.sync { display:flex; align-items:center; gap:6px; }
+.sync i { width:7px; height:7px; border-radius:50%; background:var(--opp-solid); display:inline-block; }
+.avatar { width:28px; height:28px; border-radius:50%; background:#DCE3EE; color:var(--brand); font-weight:600; font-size:11px; display:grid; place-items:center; }
+
+.page { padding:20px 24px 32px; max-width:1440px; }
+.ph { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:16px; }
+.crumb { color:var(--ink-3); font-size:12px; margin-bottom:4px; }
+h1 { margin:0; font-size:22px; line-height:28px; font-weight:600; letter-spacing:-.015em; }
+.sub { color:var(--ink-2); margin-top:2px; }
+.btn { white-space:nowrap; height:32px; padding:0 12px; border-radius:var(--r-md); border:1px solid var(--border-strong); background:var(--surface); color:var(--ink); font:500 13px var(--font); display:inline-flex; align-items:center; gap:6px; }
+.btn.primary { background:var(--action); border-color:var(--action); color:#fff; }
+.btn.ghost { border-color:transparent; background:transparent; color:var(--ink-2); }
+.actions { display:flex; gap:8px; }
+
+/* KPI strip: one container, divided cells */
+.kpis { display:grid; grid-template-columns:1.25fr 1fr 1fr 1fr 1fr; background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); box-shadow:var(--e1); margin-bottom:16px; }
+.kpi { padding:14px 18px; border-left:1px solid var(--border); }
+.kpi:first-child { border-left:0; }
+.kpi .l { color:var(--ink-2); font-size:12px; font-weight:500; display:flex; justify-content:space-between; }
+.kpi .v { font-size:24px; line-height:32px; font-weight:600; letter-spacing:-.01em; margin-top:2px; }
+.kpi .d { font-size:12px; color:var(--ink-3); margin-top:2px; }
+.kpi .d .bad { color:var(--crit); font-weight:500; } .kpi .d .good { color:var(--opp); font-weight:500; }
+.kpi .v.crit { color:var(--crit); }
+.bar { display:flex; height:6px; border-radius:3px; overflow:hidden; margin-top:10px; background:#EEF0F3; }
+.bar span { display:block; height:100%; }
+.legend { display:flex; gap:12px; margin-top:6px; font-size:11.5px; color:var(--ink-2); }
+.legend i { display:inline-block; width:8px; height:8px; border-radius:2px; margin-right:5px; vertical-align:-0.5px; }
+
+/* Toolbar */
+.toolbar { display:flex; align-items:center; gap:8px; padding:10px 12px; border-bottom:1px solid var(--border); }
+.seg { display:inline-flex; border:1px solid var(--border-strong); border-radius:var(--r-md); overflow:hidden; }
+.seg span { padding:5px 11px; font-weight:500; color:var(--ink-2); border-left:1px solid var(--border); }
+.seg span:first-child { border-left:0; }
+.seg span.on { background:var(--action-tint); color:var(--action); }
+.seg b { font-weight:600; color:var(--ink-3); margin-left:4px; }
+.seg span.on b { color:var(--action); }
+.select { height:30px; padding:0 10px; border:1px solid var(--border-strong); border-radius:var(--r-md); display:inline-flex; align-items:center; gap:6px; color:var(--ink-2); background:var(--surface); }
+.select em { font-style:normal; color:var(--ink); font-weight:500; }
+.search { margin-left:auto; width:220px; height:30px; border:1px solid var(--border-strong); border-radius:var(--r-md); display:flex; align-items:center; gap:6px; padding:0 10px; color:var(--ink-4); }
+
+/* Split view */
+.split { display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:16px; align-items:start; }
+.panel { background:var(--surface); border:1px solid var(--border); border-radius:var(--r-lg); box-shadow:var(--e1); overflow:hidden; }
+table { width:100%; border-collapse:collapse; table-layout:fixed; }
+th { text-align:left; font-size:12px; font-weight:500; color:var(--ink-3); padding:8px 12px; background:var(--surface-2); border-bottom:1px solid var(--border); white-space:nowrap; }
+th.sorted { color:var(--ink); }
+td { padding:10px 12px; border-bottom:1px solid #EEF0F3; vertical-align:middle; }
+tr:last-child td { border-bottom:0; }
+tr.selected td { background:#F3F7FE; }
+tr.selected td:first-child { box-shadow:inset 3px 0 0 var(--action); }
+th.num, td.num { text-align:right; }
+.t1 { font-weight:500; color:var(--ink); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.t2 { color:var(--ink-3); font-size:12px; margin-top:1px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; display:flex; align-items:center; gap:6px; }
+.t2.sig { display:block; }
+.t2.r { justify-content:flex-end; margin-left:auto; }
+.mono-ish { font-family:var(--mono); font-size:12px; font-weight:500; }
+.muted { color:var(--ink-2); }
+.amt { font-weight:600; font-size:14px; }
+.amt.up { color:var(--opp); }
+.c-chk { width:36px; padding-right:0; }
+.chk { display:block; width:14px; height:14px; border:1px solid var(--border-strong); border-radius:3px; background:#fff; }
+.c-spark { width:100px; }
+.status { display:inline-flex; align-items:center; gap:6px; height:22px; padding:0 8px; border-radius:var(--r-sm); font-size:12px; font-weight:500; border:1px solid; white-space:nowrap; }
+.status.crit { color:var(--crit); background:var(--crit-tint); border-color:var(--crit-line); }
+.status.warn { color:var(--warn); background:var(--warn-tint); border-color:var(--warn-line); }
+.status.opp  { color:var(--opp);  background:var(--opp-tint);  border-color:var(--opp-line); }
+.status.crit svg { color:var(--crit-solid); } .status.warn svg { color:var(--warn-solid); } .status.opp svg { color:var(--opp-solid); }
+.plat { display:inline-grid; place-items:center; width:15px; height:15px; border-radius:3px; font-size:9.5px; font-weight:600; color:#fff; }
+.plat.meta { background:#4B5B7A; } .plat.goog { background:#6B7385; }
+.tfoot { display:flex; justify-content:space-between; padding:9px 12px; border-top:1px solid var(--border); color:var(--ink-3); font-size:12px; background:var(--surface-2); }
+
+/* Detail panel */
+.dh { padding:14px 16px 12px; border-bottom:1px solid var(--border); }
+.dh .top { display:flex; justify-content:space-between; align-items:center; }
+.dh h2 { margin:8px 0 2px; font-size:16px; line-height:22px; font-weight:600; letter-spacing:-.01em; }
+.dh .meta { color:var(--ink-3); font-size:12px; display:flex; gap:6px; align-items:center; }
+.x { color:var(--ink-3); font-size:16px; }
+.sec { padding:14px 16px; border-bottom:1px solid var(--border); }
+.sec:last-child { border-bottom:0; }
+.sec h3 { margin:0 0 10px; font-size:12px; font-weight:600; color:var(--ink-2); display:flex; justify-content:space-between; }
+.sec h3 span { font-weight:400; color:var(--ink-3); }
+.stake { display:flex; align-items:baseline; gap:8px; }
+.stake .big { font-size:26px; font-weight:600; letter-spacing:-.01em; color:var(--crit); font-variant-numeric:tabular-nums; }
+.stake .hz { color:var(--ink-3); }
+.kv { display:grid; grid-template-columns:1fr auto; row-gap:7px; margin-top:12px; }
+.kv span { color:var(--ink-2); } .kv b { font-weight:500; text-align:right; }
+.kv .sum { border-top:1px solid var(--border); padding-top:7px; color:var(--ink); font-weight:500; }
+.chart .ax { font:11px var(--font); fill:var(--ink-3); }
+.chart .ann { font:500 11px var(--font); fill:var(--crit); }
+.clegend { display:flex; gap:14px; font-size:11.5px; color:var(--ink-2); margin-bottom:6px; }
+.clegend i { display:inline-block; width:10px; height:2px; margin-right:6px; vertical-align:3px; }
+.clegend i.blk { width:8px; height:8px; vertical-align:-0.5px; border-radius:1.5px; }
+.rule { font-family:var(--mono); font-size:11.5px; background:var(--surface-2); border:1px solid var(--border); border-radius:var(--r-md); padding:8px 10px; color:var(--ink-2); line-height:1.6; }
+ol.steps { margin:0; padding-left:18px; color:var(--ink); }
+ol.steps li { margin-bottom:6px; padding-left:2px; }
+ol.steps li span { color:var(--ink-3); }
+.dfoot { display:flex; gap:8px; padding:12px 16px; background:var(--surface-2); border-top:1px solid var(--border); }
+
+/* Accounts */
+.acct-wrap { margin-top:16px; }
+.sect-h { display:flex; justify-content:space-between; align-items:center; padding:12px 16px; border-bottom:1px solid var(--border); }
+.sect-h h2 { margin:0; font-size:14px; font-weight:600; }
+.sect-h span { color:var(--ink-3); font-size:12px; }
+.acct td { padding:10px 16px; } .acct th { padding:8px 16px; }
+.pct { display:flex; align-items:center; gap:10px; justify-content:flex-end; }
+.pct .track { width:120px; height:6px; background:#EEF0F3; border-radius:3px; overflow:hidden; }
+.pct .fill { height:100%; background:var(--crit-solid); }
+.pill-n { display:inline-flex; gap:4px; }
+.pill-n span { min-width:20px; height:20px; padding:0 6px; border-radius:var(--r-sm); font-size:11.5px; font-weight:600; display:inline-grid; place-items:center; border:1px solid; }
+.pill-n .c { color:var(--crit); background:var(--crit-tint); border-color:var(--crit-line); }
+.pill-n .w { color:var(--warn); background:var(--warn-tint); border-color:var(--warn-line); }
+.pill-n .o { color:var(--opp); background:var(--opp-tint); border-color:var(--opp-line); }
+.pill-n .z { color:var(--ink-4); background:#fff; border-color:var(--border); }
+</style></head>
+<body>
+<header class="appbar">
+  <div class="logo"><span class="mark"><svg width="14" height="14" viewBox="0 0 14 14"><path d="M2 10.5 5.2 6.8 7.6 9 12 3.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Spendhound</div>
+  <div class="ws">Northwind Media <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 4 5 6.5 7.5 4" stroke="#7A8496" stroke-width="1.4" fill="none"/></svg></div>
+  <nav class="nav"><a class="on" href="#">Triage<span class="cnt">5</span></a><a href="#">Accounts</a><a href="#">Checks</a><a href="#">Reports</a></nav>
+  <div class="right"><span class="sync"><i></i>Data as of 12 Nov 2026, 06:00</span><span class="avatar">OM</span></div>
+</header>
+
+<main class="page">
+  <div class="ph">
+    <div><div class="crumb">Northwind Media · 3 client accounts · Google Ads, Meta</div>
+      <h1>Triage</h1>
+      <div class="sub">Issues ranked by money at stake. Every figure is computed from account data, not estimated by AI.</div></div>
+    <div class="actions"><button class="btn">Export CSV</button><button class="btn primary">Re-run checks</button></div>
+  </div>
+
+  <section class="kpis">
+    <div class="kpi"><div class="l">Money at risk</div><div class="v crit">₪41,900</div>
+      <div class="bar"><span style="width:34.9%;background:var(--crit-solid)"></span><span style="width:33.1%;background:#E8625E"></span><span style="width:20%;background:var(--warn-solid)"></span><span style="width:12%;background:#F0A94A"></span></div>
+      <div class="legend"><span><i style="background:var(--crit-solid)"></i>Critical ₪28,510</span><span><i style="background:var(--warn-solid)"></i>Warning ₪13,390</span></div></div>
+    <div class="kpi"><div class="l">Spend, last 30 days</div><div class="v">₪312,480</div><div class="d"><span class="bad">13.4%</span> of spend is at risk</div></div>
+    <div class="kpi"><div class="l">Upside found</div><div class="v">₪9,800</div><div class="d">1 underfunded campaign · <span class="good">per month</span></div></div>
+    <div class="kpi"><div class="l">Open issues</div><div class="v">5</div><div class="d">2 critical · 2 warning · 1 opportunity</div></div>
+    <div class="kpi"><div class="l">Accounts affected</div><div class="v">3 <span style="font-size:15px;color:var(--ink-3);font-weight:500">/ 3</span></div><div class="d">Last full check 06:00 today</div></div>
+  </section>
+
+  <div class="split">
+   <div>
+    <section class="panel">
+      <div class="toolbar">
+        <div class="seg"><span class="on">All<b>5</b></span><span>Critical<b>2</b></span><span>Warning<b>2</b></span><span>Opportunity<b>1</b></span></div>
+        <span class="select">Account: <em>All accounts</em> <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 4 5 6.5 7.5 4" stroke="#7A8496" stroke-width="1.4" fill="none"/></svg></span>
+        <span class="select">Platform: <em>All</em> <svg width="10" height="10" viewBox="0 0 10 10"><path d="M2.5 4 5 6.5 7.5 4" stroke="#7A8496" stroke-width="1.4" fill="none"/></svg></span>
+        <span class="search"><svg width="12" height="12" viewBox="0 0 12 12"><circle cx="5" cy="5" r="3.8" stroke="#A3ABB8" stroke-width="1.3" fill="none"/><path d="M8 8 11 11" stroke="#A3ABB8" stroke-width="1.3"/></svg>Search campaigns</span>
+      </div>
+      <table>
+        <colgroup><col style="width:36px"><col style="width:118px"><col><col style="width:210px"><col style="width:104px"><col style="width:52px"><col style="width:150px"></colgroup>
+        <thead><tr><th class="c-chk"><span class="chk"></span></th><th>Severity</th><th>Issue &amp; signal</th><th>Campaign &amp; account</th><th>14-day trend</th><th class="num">Open</th><th class="num sorted">At stake ↓</th></tr></thead>
+        <tbody><tr class="selected">
+  <td class="c-chk"><span class="chk"></span></td>
+  <td><span class="status crit"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0.8 9.4 8.8H0.6Z" fill="currentColor"/></svg>Critical</span></td>
+  <td><div class="t1">Broken tracking</div><div class="t2 sig">0 conversions for 4 days · clicks at 98% of normal</div></td>
+  <td><div class="t1 mono-ish">Meta_Leads_FreeTrial</div><div class="t2"><span class="plat meta">M</span>PeakForm Fitness</div></td>
+  <td class="c-spark"><svg width="80" height="24" viewBox="0 0 80 24"><polyline points="1.0,5.1 7.0,3.5 13.0,6.6 19.0,2.0 25.0,5.1 31.0,3.5 37.0,5.1 43.0,6.6 49.0,3.5 55.0,5.1 61.0,22.0 67.0,22.0 73.0,22.0 79.0,22.0" fill="none" stroke="#5B6475" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="79.0" cy="22.0" r="2.2" fill="#D1342F"/></svg></td>
+  <td class="num muted">4d</td>
+  <td class="num"><div class="amt ">₪14,620</div><div class="t2 r">gap + next 7 days</div></td>
+</tr><tr class="">
+  <td class="c-chk"><span class="chk"></span></td>
+  <td><span class="status crit"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0.8 9.4 8.8H0.6Z" fill="currentColor"/></svg>Critical</span></td>
+  <td><div class="t1">Zero-conversion spend</div><div class="t2 sig">₪6,480 spent in 14 days · 1 conversion</div></td>
+  <td><div class="t1 mono-ish">Meta_Awareness_Reels</div><div class="t2"><span class="plat meta">M</span>Lumen Dental Clinics</div></td>
+  <td class="c-spark"><svg width="80" height="24" viewBox="0 0 80 24"><polyline points="1.0,22.0 7.0,8.7 13.0,15.3 19.0,2.0 25.0,18.7 31.0,8.7 37.0,12.0 43.0,5.3 49.0,15.3 55.0,8.7 61.0,2.0 67.0,12.0 73.0,8.7 79.0,5.3" fill="none" stroke="#5B6475" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
+  <td class="num muted">14d</td>
+  <td class="num"><div class="amt ">₪13,890</div><div class="t2 r">next 30 days</div></td>
+</tr><tr class="">
+  <td class="c-chk"><span class="chk"></span></td>
+  <td><span class="status warn"><svg width="10" height="10" viewBox="0 0 10 10"><rect x="1.5" y="1.5" width="7" height="7" transform="rotate(45 5 5)" fill="currentColor"/></svg>Warning</span></td>
+  <td><div class="t1">Budget overpacing</div><div class="t2 sig">Projected ₪38,400 vs ₪30,000 monthly budget (+28%)</div></td>
+  <td><div class="t1 mono-ish">Google_PMax_AllServices</div><div class="t2"><span class="plat goog">G</span>Lumen Dental Clinics</div></td>
+  <td class="c-spark"><svg width="80" height="24" viewBox="0 0 80 24"><polyline points="1.0,22.0 7.0,20.3 13.0,18.6 19.0,15.8 25.0,13.4 31.0,11.7 37.0,9.6 43.0,8.2 49.0,6.5 55.0,5.4 61.0,4.8 67.0,4.1 73.0,3.0 79.0,2.0" fill="none" stroke="#5B6475" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="79.0" cy="2.0" r="2.2" fill="#B45309"/></svg></td>
+  <td class="num muted">6d</td>
+  <td class="num"><div class="amt ">₪8,400</div><div class="t2 r">Nov overspend</div></td>
+</tr><tr class="">
+  <td class="c-chk"><span class="chk"></span></td>
+  <td><span class="status warn"><svg width="10" height="10" viewBox="0 0 10 10"><rect x="1.5" y="1.5" width="7" height="7" transform="rotate(45 5 5)" fill="currentColor"/></svg>Warning</span></td>
+  <td><div class="t1">Creative fatigue</div><div class="t2 sig">CTR down 41% over 21 days (1.84% → 1.09%)</div></td>
+  <td><div class="t1 mono-ish">Meta_Retargeting_Carousel</div><div class="t2"><span class="plat meta">M</span>Olive &amp; Thyme</div></td>
+  <td class="c-spark"><svg width="80" height="24" viewBox="0 0 80 24"><polyline points="1.0,2.0 7.0,3.1 13.0,3.9 19.0,5.5 25.0,6.8 31.0,7.9 37.0,9.7 43.0,11.3 49.0,13.2 55.0,14.5 61.0,16.4 67.0,18.5 73.0,20.4 79.0,22.0" fill="none" stroke="#5B6475" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/><circle cx="79.0" cy="22.0" r="2.2" fill="#B45309"/></svg></td>
+  <td class="num muted">9d</td>
+  <td class="num"><div class="amt ">₪4,990</div><div class="t2 r">next 30 days</div></td>
+</tr><tr class="">
+  <td class="c-chk"><span class="chk"></span></td>
+  <td><span class="status opp"><svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" fill="currentColor"/></svg>Opportunity</span></td>
+  <td><div class="t1">Underfunded winner</div><div class="t2 sig">ROAS 6.2 vs 2.1 account avg · budget-capped 9 of 14 days</div></td>
+  <td><div class="t1 mono-ish">Google_Search_Reservations</div><div class="t2"><span class="plat goog">G</span>Olive &amp; Thyme</div></td>
+  <td class="c-spark"><svg width="80" height="24" viewBox="0 0 80 24"><polyline points="1.0,18.7 7.0,8.7 13.0,22.0 19.0,5.3 25.0,15.3 31.0,12.0 37.0,2.0 43.0,18.7 49.0,12.0 55.0,8.7 61.0,15.3 67.0,5.3 73.0,12.0 79.0,12.0" fill="none" stroke="#5B6475" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/></svg></td>
+  <td class="num muted">14d</td>
+  <td class="num"><div class="amt up">+₪9,800</div><div class="t2 r">upside / month</div></td>
+</tr></tbody>
+      </table>
+      <div class="tfoot"><span>5 issues · sorted by money at stake</span><span>Thresholds: <u>view check rules</u></span></div>
+    </section>
+
+  <section class="panel acct-wrap">
+    <div class="sect-h"><h2>Accounts</h2><span>Last 30 days</span></div>
+    <table class="acct"><colgroup><col><col style="width:130px"><col style="width:120px"><col style="width:110px"><col style="width:220px"><col style="width:130px"></colgroup>
+      <thead><tr><th>Account</th><th>Platforms</th><th class="num">Spend</th><th class="num">At risk</th><th class="num">Share of spend at risk</th><th class="num">Open issues</th></tr></thead>
+      <tbody>
+        <tr><td class="t1">Lumen Dental Clinics</td><td class="muted">Google, Meta</td><td class="num">₪121,540</td><td class="num" style="color:var(--crit);font-weight:500">₪22,290</td><td class="num"><div class="pct">18.3%<div class="track"><div class="fill" style="width:73%"></div></div></div></td><td class="num"><span class="pill-n"><span class="c">1</span><span class="w">1</span><span class="z">0</span></span></td></tr>
+        <tr><td class="t1">PeakForm Fitness</td><td class="muted">Google, Meta</td><td class="num">₪118,200</td><td class="num" style="color:var(--crit);font-weight:500">₪14,620</td><td class="num"><div class="pct">12.4%<div class="track"><div class="fill" style="width:50%"></div></div></div></td><td class="num"><span class="pill-n"><span class="c">1</span><span class="z">0</span><span class="z">0</span></span></td></tr>
+        <tr><td class="t1">Olive &amp; Thyme</td><td class="muted">Google, Meta</td><td class="num">₪72,740</td><td class="num" style="color:var(--crit);font-weight:500">₪4,990</td><td class="num"><div class="pct">6.9%<div class="track"><div class="fill" style="width:28%;background:var(--warn-solid)"></div></div></div></td><td class="num"><span class="pill-n"><span class="z">0</span><span class="w">1</span><span class="o">1</span></span></td></tr>
+      </tbody>
+    </table>
+  </section>
+   </div>
+    <aside class="panel">
+      <div class="dh">
+        <div class="top"><span class="status crit"><svg width="10" height="10" viewBox="0 0 10 10"><path d="M5 0.8 9.4 8.8H0.6Z" fill="currentColor"/></svg>Critical</span><span class="x">✕</span></div>
+        <h2>Broken tracking on Meta_Leads_FreeTrial</h2>
+        <div class="meta"><span class="plat meta">M</span>PeakForm Fitness · Meta Ads · flagged 9 Nov</div>
+      </div>
+      <div class="sec">
+        <h3>Money at stake <span>ILS</span></h3>
+        <div class="stake"><span class="big">₪14,620</span><span class="hz">if not fixed this week</span></div>
+        <div class="kv">
+          <span>Spend during tracking gap, 4 days</span><b>₪5,220</b>
+          <span>Projected spend, next 7 days</span><b>₪9,400</b>
+          <span class="sum">Total at stake</span><b class="sum">₪14,620</b>
+        </div>
+      </div>
+      <div class="sec">
+        <h3>Evidence <span>last 21 days</span></h3>
+        <div class="clegend"><span><i class="blk" style="background:#CDD3DD"></i>Clicks (left)</span><span><i style="background:#1F2A44"></i>Conversions (right)</span></div>
+        <svg width="366" height="176" viewBox="0 0 366 176" class="chart"><line x1="34" x2="332" y1="152.0" y2="152.0" stroke="#EDEFF3"/><text x="28" y="155.5" text-anchor="end" class="ax">0</text><text x="338" y="155.5" class="ax">0</text><line x1="34" x2="332" y1="116.5" y2="116.5" stroke="#EDEFF3"/><text x="28" y="120.0" text-anchor="end" class="ax">125</text><text x="338" y="120.0" class="ax">4</text><line x1="34" x2="332" y1="81.0" y2="81.0" stroke="#EDEFF3"/><text x="28" y="84.5" text-anchor="end" class="ax">250</text><text x="338" y="84.5" class="ax">8</text><line x1="34" x2="332" y1="45.5" y2="45.5" stroke="#EDEFF3"/><text x="28" y="49.0" text-anchor="end" class="ax">375</text><text x="338" y="49.0" class="ax">12</text><line x1="34" x2="332" y1="10.0" y2="10.0" stroke="#EDEFF3"/><text x="28" y="13.5" text-anchor="end" class="ax">500</text><text x="338" y="13.5" class="ax">16</text><rect x="275.2" y="10" width="56.8" height="142" fill="#FDECEC"/><text x="269.2" y="22" text-anchor="end" class="ann">Tracking gap · 4 days →</text><rect x="36.0" y="39.0" width="10.2" height="113.0" rx="1.5" fill="#CDD3DD"/><rect x="50.2" y="42.4" width="10.2" height="109.6" rx="1.5" fill="#CDD3DD"/><rect x="64.4" y="32.4" width="10.2" height="119.6" rx="1.5" fill="#CDD3DD"/><rect x="78.6" y="44.1" width="10.2" height="107.9" rx="1.5" fill="#CDD3DD"/><rect x="92.8" y="34.7" width="10.2" height="117.3" rx="1.5" fill="#CDD3DD"/><rect x="107.0" y="38.1" width="10.2" height="113.9" rx="1.5" fill="#CDD3DD"/><rect x="121.1" y="44.4" width="10.2" height="107.6" rx="1.5" fill="#CDD3DD"/><rect x="135.3" y="35.3" width="10.2" height="116.7" rx="1.5" fill="#CDD3DD"/><rect x="149.5" y="44.6" width="10.2" height="107.4" rx="1.5" fill="#CDD3DD"/><rect x="163.7" y="37.0" width="10.2" height="115.0" rx="1.5" fill="#CDD3DD"/><rect x="177.9" y="44.1" width="10.2" height="107.9" rx="1.5" fill="#CDD3DD"/><rect x="192.1" y="43.8" width="10.2" height="108.2" rx="1.5" fill="#CDD3DD"/><rect x="206.3" y="37.0" width="10.2" height="115.0" rx="1.5" fill="#CDD3DD"/><rect x="220.5" y="29.0" width="10.2" height="123.0" rx="1.5" fill="#CDD3DD"/><rect x="234.7" y="42.9" width="10.2" height="109.1" rx="1.5" fill="#CDD3DD"/><rect x="248.9" y="41.0" width="10.2" height="111.0" rx="1.5" fill="#CDD3DD"/><rect x="263.0" y="33.0" width="10.2" height="119.0" rx="1.5" fill="#CDD3DD"/><rect x="277.2" y="26.8" width="10.2" height="125.2" rx="1.5" fill="#CDD3DD"/><rect x="291.4" y="34.1" width="10.2" height="117.9" rx="1.5" fill="#CDD3DD"/><rect x="305.6" y="37.5" width="10.2" height="114.5" rx="1.5" fill="#CDD3DD"/><rect x="319.8" y="26.2" width="10.2" height="125.8" rx="1.5" fill="#CDD3DD"/><polyline points="41.1,72.1 55.3,36.6 69.5,63.2 83.7,72.1 97.9,72.1 112.0,63.2 126.2,36.6 140.4,72.1 154.6,54.4 168.8,45.5 183.0,63.2 197.2,54.4 211.4,72.1 225.6,72.1 239.8,63.2 254.0,45.5 268.1,54.4 282.3,152.0 296.5,152.0 310.7,152.0 324.9,152.0" fill="none" stroke="#1F2A44" stroke-width="1.75" stroke-linejoin="round"/><polyline points="268.1,54.4 282.3,152.0 296.5,152.0 310.7,152.0 324.9,152.0" fill="none" stroke="#D1342F" stroke-width="2" stroke-linejoin="round"/><circle cx="282.3" cy="152.0" r="2.6" fill="#fff" stroke="#D1342F" stroke-width="1.5"/><circle cx="296.5" cy="152.0" r="2.6" fill="#fff" stroke="#D1342F" stroke-width="1.5"/><circle cx="310.7" cy="152.0" r="2.6" fill="#fff" stroke="#D1342F" stroke-width="1.5"/><circle cx="324.9" cy="152.0" r="2.6" fill="#fff" stroke="#D1342F" stroke-width="1.5"/><text x="41.1" y="170" text-anchor="middle" class="ax">23 Oct</text><text x="140.4" y="170" text-anchor="middle" class="ax">30 Oct</text><text x="239.8" y="170" text-anchor="middle" class="ax">6 Nov</text><text x="324.9" y="170" text-anchor="middle" class="ax">12 Nov</text></svg>
+        <div class="kv" style="margin-top:8px">
+          <span>Conversions, 14-day median</span><b>11 / day</b>
+          <span>Conversions, last 4 days</span><b style="color:var(--crit)">0</b>
+          <span>Clicks vs. 14-day baseline</span><b>98%</b>
+        </div>
+      </div>
+      <div class="sec">
+        <h3>Why this was flagged</h3>
+        <div class="rule">conversions == 0 for ≥ 3 consecutive days<br>AND clicks within ±30% of 14-day baseline<br>AND campaign converted on ≥ 80% of prior days</div>
+      </div>
+      <div class="sec">
+        <h3>Recommended next steps</h3>
+        <ol class="steps">
+          <li>Open Meta Events Manager and confirm the <b>Lead</b> event fired in the last 24 h.</li>
+          <li>Check the thank-you page still loads the Pixel. <span>Site changes are the usual cause.</span></li>
+          <li>Hold budget increases until conversions are recorded again.</li>
+        </ol>
+      </div>
+      <div class="dfoot"><button class="btn primary">Mark reviewed</button><button class="btn">Snooze 7d</button><button class="btn ghost">Copy for client</button></div>
+    </aside>
+  </div>
+
+
+</main>
+</body></html>
