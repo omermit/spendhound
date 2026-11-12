@@ -99,7 +99,8 @@ def allowed_values(facts):
             for t in tokens:
                 numbers.update(abs(c) for c in t.candidates)
         elif isinstance(value, dict):
-            for v in value.values():
+            for k, v in value.items():
+                add(k)          # labels carry numbers too: "Spend, last 14 days"
                 add(v)
         elif isinstance(value, (list, tuple)):
             for v in value:
