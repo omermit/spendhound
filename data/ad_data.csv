@@ -1,0 +1,721 @@
+date,account,platform,campaign,monthly_budget,cost,impressions,clicks,conversions,revenue
+2026-09-14,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,383.09,4508,280,7,1057.54
+2026-09-14,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,290.33,20828,250,5,690.71
+2026-09-14,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,313.87,11195,132,6,665.83
+2026-09-14,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,186.72,4575,91,5,538.63
+2026-09-14,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,1002.87,9830,534,4,3158.09
+2026-09-14,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,908.27,46849,605,3,2591.62
+2026-09-14,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,826.67,33756,512,3,1915.03
+2026-09-14,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,650.6,52696,414,0,0.0
+2026-09-14,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.75,2337,196,5,1674.56
+2026-09-14,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,301.81,35591,188,3,822.03
+2026-09-14,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,545.0,19723,251,8,1596.47
+2026-09-14,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,400.23,38974,290,4,1075.1
+2026-09-15,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,382.12,4117,253,8,1189.49
+2026-09-15,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,324.48,20195,241,6,766.19
+2026-09-15,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,366.93,11950,160,7,803.81
+2026-09-15,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,194.52,4735,75,4,410.79
+2026-09-15,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,817.29,7994,425,3,2421.28
+2026-09-15,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,973.83,45960,496,3,2575.21
+2026-09-15,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,873.61,33246,542,4,2752.57
+2026-09-15,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,676.27,53092,471,0,0.0
+2026-09-15,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.25,2448,200,5,1486.35
+2026-09-15,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,294.16,37556,191,5,1297.62
+2026-09-15,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,602.23,21111,264,8,1727.85
+2026-09-15,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,480.24,45309,340,4,979.8
+2026-09-16,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,361.94,3937,211,5,706.31
+2026-09-16,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,275.69,18862,202,4,520.94
+2026-09-16,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,316.52,10786,115,5,613.69
+2026-09-16,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,183.13,4767,83,4,406.81
+2026-09-16,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,975.37,8219,408,3,2338.8
+2026-09-16,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,904.53,46394,525,4,3169.78
+2026-09-16,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,708.43,26430,399,3,2118.13
+2026-09-16,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,620.54,51480,459,0,0.0
+2026-09-16,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.25,2591,221,6,2090.51
+2026-09-16,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,287.74,37635,202,5,1338.16
+2026-09-16,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,644.08,21888,278,9,1806.35
+2026-09-16,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,434.4,46981,292,3,713.88
+2026-09-17,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,418.48,4333,257,9,1481.77
+2026-09-17,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,332.76,22675,254,6,789.05
+2026-09-17,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,325.17,10628,140,6,717.04
+2026-09-17,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,207.34,4946,80,4,476.06
+2026-09-17,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,960.98,8400,418,3,2697.46
+2026-09-17,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,959.8,45786,612,4,3332.94
+2026-09-17,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,885.79,34201,472,3,1953.48
+2026-09-17,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,768.02,61009,447,0,0.0
+2026-09-17,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.13,2432,177,4,1444.32
+2026-09-17,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,310.78,38683,214,4,1074.35
+2026-09-17,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,646.97,24226,273,9,1706.59
+2026-09-17,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,459.34,47773,328,3,811.5
+2026-09-18,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,385.96,4317,264,9,1328.57
+2026-09-18,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,330.08,21999,266,7,885.67
+2026-09-18,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,344.97,12113,128,6,672.82
+2026-09-18,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,198.73,4795,87,4,441.61
+2026-09-18,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,911.98,7930,359,3,2421.73
+2026-09-18,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,946.46,45348,545,3,2682.6
+2026-09-18,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,879.2,35490,547,4,2806.81
+2026-09-18,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,732.38,61500,496,0,0.0
+2026-09-18,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.07,2326,175,5,1796.28
+2026-09-18,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,324.48,43060,196,4,914.51
+2026-09-18,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,562.65,21568,269,10,2158.81
+2026-09-18,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,412.68,39889,290,3,807.42
+2026-09-19,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,444.88,5175,344,10,1496.18
+2026-09-19,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,335.27,21223,234,6,842.62
+2026-09-19,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,336.49,11790,135,6,650.81
+2026-09-19,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,202.59,5114,81,4,450.91
+2026-09-19,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,902.65,8821,492,4,3720.75
+2026-09-19,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,905.15,47021,502,3,2432.93
+2026-09-19,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,728.87,29522,487,4,2664.82
+2026-09-19,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,641.09,50067,407,0,0.0
+2026-09-19,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.66,2507,180,6,2033.24
+2026-09-19,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,321.72,43084,234,4,1072.55
+2026-09-19,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,593.34,21751,264,11,2097.86
+2026-09-19,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,409.96,40820,268,3,699.22
+2026-09-20,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,356.84,4164,239,7,1104.49
+2026-09-20,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,284.88,18992,210,5,632.54
+2026-09-20,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,329.04,11890,151,6,675.28
+2026-09-20,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,198.79,4647,76,4,434.03
+2026-09-20,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,898.92,7757,378,3,2645.75
+2026-09-20,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1115.79,57230,742,5,4365.58
+2026-09-20,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,781.7,32050,429,3,1919.7
+2026-09-20,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,740.47,64217,472,0,0.0
+2026-09-20,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.53,2565,192,5,1636.62
+2026-09-20,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,275.34,34719,164,4,1094.52
+2026-09-20,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,606.78,22595,301,10,1942.63
+2026-09-20,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,396.12,40376,281,3,705.15
+2026-09-21,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,400.45,4832,274,7,1028.9
+2026-09-21,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,267.0,19272,220,5,711.98
+2026-09-21,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,352.45,11296,141,6,774.59
+2026-09-21,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,194.7,5007,101,4,459.73
+2026-09-21,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,930.94,9129,493,4,3486.59
+2026-09-21,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1056.12,50294,551,3,2552.23
+2026-09-21,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,864.31,32965,533,4,3019.98
+2026-09-21,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,730.73,59067,442,0,0.0
+2026-09-21,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.29,2309,187,5,1691.65
+2026-09-21,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,313.01,39193,173,4,1049.65
+2026-09-21,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,600.43,21324,266,8,1675.77
+2026-09-21,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,423.24,45416,300,4,941.04
+2026-09-22,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,423.02,4368,262,7,1045.59
+2026-09-22,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,313.23,20026,247,7,897.18
+2026-09-22,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,320.38,11117,141,5,608.13
+2026-09-22,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,176.6,4749,81,4,456.91
+2026-09-22,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,937.95,8822,443,3,2532.83
+2026-09-22,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,908.44,42731,476,3,2772.49
+2026-09-22,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,707.36,28481,460,4,2771.69
+2026-09-22,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,661.13,57777,512,0,0.0
+2026-09-22,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.43,2298,168,5,1652.89
+2026-09-22,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,327.85,39690,186,4,997.23
+2026-09-22,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,531.58,20623,247,8,1536.62
+2026-09-22,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,411.2,42173,282,4,900.35
+2026-09-23,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,424.07,4469,244,9,1407.52
+2026-09-23,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,328.91,22691,264,6,923.8
+2026-09-23,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,357.49,12188,144,5,545.79
+2026-09-23,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,180.88,4292,73,4,417.94
+2026-09-23,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,849.4,7708,357,3,2782.64
+2026-09-23,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1092.22,52015,644,5,4624.59
+2026-09-23,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,809.45,31279,418,3,2079.36
+2026-09-23,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,742.45,60473,459,0,0.0
+2026-09-23,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.04,2524,192,6,2168.61
+2026-09-23,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,282.73,34481,164,3,734.16
+2026-09-23,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,552.1,20846,233,9,1798.95
+2026-09-23,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,419.76,39414,309,4,927.92
+2026-09-24,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,370.47,4405,254,6,853.04
+2026-09-24,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,282.6,18633,244,7,962.91
+2026-09-24,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,342.77,11382,133,5,547.45
+2026-09-24,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,189.32,4404,72,4,451.41
+2026-09-24,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,978.38,9318,440,3,2498.88
+2026-09-24,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,987.01,46009,598,4,3074.83
+2026-09-24,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,710.19,27486,451,3,2136.61
+2026-09-24,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,616.03,52243,461,0,0.0
+2026-09-24,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.36,2607,191,5,1710.08
+2026-09-24,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,331.79,40052,207,5,1239.33
+2026-09-24,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,607.42,23419,300,9,1951.17
+2026-09-24,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,465.71,48081,307,3,770.44
+2026-09-25,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,419.06,4964,267,8,1219.89
+2026-09-25,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,291.94,20363,250,5,672.21
+2026-09-25,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,346.7,10766,134,6,716.44
+2026-09-25,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,187.27,4879,98,5,528.81
+2026-09-25,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,796.71,7245,377,3,2426.2
+2026-09-25,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1040.17,48696,546,3,2467.41
+2026-09-25,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,784.75,30499,424,4,2933.91
+2026-09-25,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,700.82,61292,546,0,0.0
+2026-09-25,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.16,2344,178,6,1978.32
+2026-09-25,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,277.49,36292,178,4,1089.75
+2026-09-25,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,549.08,19950,223,9,1671.09
+2026-09-25,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,401.6,43200,295,4,1076.72
+2026-09-26,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,422.34,4347,288,8,1124.52
+2026-09-26,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,331.38,21255,226,6,819.61
+2026-09-26,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,339.41,11627,128,4,458.86
+2026-09-26,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,192.87,4494,74,4,414.25
+2026-09-26,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,869.03,7514,405,3,2320.12
+2026-09-26,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,993.63,50714,670,4,3307.69
+2026-09-26,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,876.22,37897,556,5,3686.67
+2026-09-26,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,622.83,56076,402,0,0.0
+2026-09-26,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.24,2558,193,6,2026.32
+2026-09-26,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,282.88,34175,163,3,675.57
+2026-09-26,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,636.81,21323,264,11,1990.67
+2026-09-26,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,421.26,42294,329,5,1221.63
+2026-09-27,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,376.1,4226,253,9,1264.39
+2026-09-27,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,321.78,20664,267,7,1001.02
+2026-09-27,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,335.54,11517,134,6,659.38
+2026-09-27,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,185.47,4456,75,3,299.24
+2026-09-27,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,911.36,8523,475,4,3731.72
+2026-09-27,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,943.57,50542,548,3,2656.98
+2026-09-27,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,789.82,32996,485,4,2897.5
+2026-09-27,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,741.66,58554,487,0,0.0
+2026-09-27,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.75,2519,213,5,1566.65
+2026-09-27,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,281.66,37276,204,4,965.27
+2026-09-27,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,585.03,19368,233,7,1486.36
+2026-09-27,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,466.56,43258,274,3,797.87
+2026-09-28,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,432.69,4509,241,7,970.04
+2026-09-28,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,277.65,17208,211,6,818.54
+2026-09-28,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,380.75,12796,145,6,784.18
+2026-09-28,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,181.08,4458,83,4,428.45
+2026-09-28,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,822.54,7849,369,3,2627.34
+2026-09-28,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,928.83,50380,579,4,3185.9
+2026-09-28,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,763.94,32080,515,4,2555.43
+2026-09-28,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,633.03,53652,434,0,0.0
+2026-09-28,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.72,2513,191,5,1799.55
+2026-09-28,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,286.49,35434,171,3,804.64
+2026-09-28,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,671.51,24517,273,10,1881.47
+2026-09-28,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,396.63,37269,256,3,735.93
+2026-09-29,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,436.75,4883,269,7,1060.83
+2026-09-29,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,310.13,19403,210,6,818.3
+2026-09-29,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,350.37,12381,141,6,781.27
+2026-09-29,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,181.22,4537,88,5,516.71
+2026-09-29,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,819.36,6956,387,3,2322.22
+2026-09-29,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1102.28,56121,739,5,4525.87
+2026-09-29,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,734.77,28106,393,3,2245.47
+2026-09-29,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,755.3,66305,495,0,0.0
+2026-09-29,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.42,2537,214,7,2097.99
+2026-09-29,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,304.49,36555,163,4,923.55
+2026-09-29,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,614.33,21766,269,9,1771.23
+2026-09-29,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,458.92,46444,338,4,987.67
+2026-09-30,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,354.24,3863,231,6,947.44
+2026-09-30,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,320.16,21487,238,6,773.99
+2026-09-30,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,318.79,10746,116,5,601.22
+2026-09-30,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,177.96,4354,71,4,464.43
+2026-09-30,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,902.48,8834,442,3,2779.94
+2026-09-30,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,912.68,43168,580,4,3614.19
+2026-09-30,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,741.19,27526,412,4,3032.98
+2026-09-30,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,643.74,51279,453,0,0.0
+2026-09-30,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.69,2292,173,5,1532.38
+2026-09-30,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,300.16,35158,163,3,750.9
+2026-09-30,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,573.95,22139,245,7,1522.19
+2026-09-30,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,469.41,44148,284,4,923.02
+2026-10-01,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,402.95,4382,254,9,1364.9
+2026-10-01,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,305.76,19209,209,6,861.8
+2026-10-01,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,341.12,10854,123,6,731.14
+2026-10-01,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,193.29,4636,82,4,461.44
+2026-10-01,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,802.43,6940,326,3,2796.87
+2026-10-01,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1020.61,49728,570,3,2312.23
+2026-10-01,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,732.68,28773,425,3,2266.13
+2026-10-01,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,638.18,55608,461,0,0.0
+2026-10-01,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.3,2490,186,5,1679.4
+2026-10-01,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,278.7,34160,170,3,815.49
+2026-10-01,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,563.08,21305,231,9,1933.66
+2026-10-01,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,480.47,48813,322,3,771.74
+2026-10-02,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,405.98,4622,287,8,1304.92
+2026-10-02,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,316.81,22006,290,6,845.3
+2026-10-02,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,342.1,11903,128,6,649.78
+2026-10-02,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,202.44,4728,78,3,337.13
+2026-10-02,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,901.5,8014,431,3,2452.79
+2026-10-02,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,952.06,51310,673,4,3546.47
+2026-10-02,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,705.22,26735,425,3,2201.54
+2026-10-02,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,692.02,60313,437,0,0.0
+2026-10-02,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.12,2406,208,6,1887.33
+2026-10-02,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,303.87,38377,205,4,953.06
+2026-10-02,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,620.45,20624,231,9,1625.48
+2026-10-02,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,424.12,44282,328,5,1311.54
+2026-10-03,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,383.38,4016,231,6,973.36
+2026-10-03,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,309.41,20010,250,7,974.02
+2026-10-03,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,378.54,12231,159,6,752.35
+2026-10-03,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,203.38,5246,88,5,503.56
+2026-10-03,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,988.73,9530,422,3,2768.76
+2026-10-03,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,962.77,51065,543,3,2648.24
+2026-10-03,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,825.7,32019,508,3,2138.0
+2026-10-03,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,677.05,53693,462,0,0.0
+2026-10-03,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.36,2328,169,4,1217.56
+2026-10-03,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,266.48,31554,170,4,1065.01
+2026-10-03,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,618.94,22884,248,7,1472.06
+2026-10-03,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,418.14,43060,296,3,713.51
+2026-10-04,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,379.13,4072,237,7,1147.44
+2026-10-04,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,300.27,18952,234,5,687.81
+2026-10-04,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,344.66,11008,127,6,725.45
+2026-10-04,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,186.4,4405,71,4,410.99
+2026-10-04,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,792.28,7563,402,4,3062.97
+2026-10-04,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,997.8,49958,642,3,2547.24
+2026-10-04,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,770.66,29272,414,4,2678.89
+2026-10-04,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,652.07,52659,421,0,0.0
+2026-10-04,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.41,2408,206,6,1922.82
+2026-10-04,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,292.89,37239,204,3,808.27
+2026-10-04,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,531.63,19923,225,9,1800.43
+2026-10-04,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,436.96,41167,270,3,754.73
+2026-10-05,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,424.43,4532,281,8,1158.4
+2026-10-05,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,275.18,17391,217,6,784.48
+2026-10-05,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,344.86,11013,135,5,595.44
+2026-10-05,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,218.49,5701,95,4,457.88
+2026-10-05,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,974.23,9375,430,3,2461.55
+2026-10-05,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1005.32,53150,611,3,2792.33
+2026-10-05,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,843.92,36054,601,4,2735.17
+2026-10-05,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,781.28,62174,525,0,0.0
+2026-10-05,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.3,2553,199,4,1293.34
+2026-10-05,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,320.95,38915,195,4,992.66
+2026-10-05,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,548.42,19267,226,9,1946.88
+2026-10-05,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,442.44,43727,324,4,945.71
+2026-10-06,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,421.33,4413,282,9,1445.16
+2026-10-06,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,312.93,20400,242,6,861.55
+2026-10-06,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,316.22,10678,137,6,738.66
+2026-10-06,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,188.0,4758,85,4,432.02
+2026-10-06,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,937.85,7977,369,3,2691.87
+2026-10-06,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,973.29,48744,652,3,2572.11
+2026-10-06,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,734.88,28127,467,4,2576.61
+2026-10-06,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,712.53,58990,497,0,0.0
+2026-10-06,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.41,2500,222,5,1710.84
+2026-10-06,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,292.26,35059,159,4,971.09
+2026-10-06,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,536.15,19866,233,7,1377.2
+2026-10-06,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,441.42,42785,289,3,708.66
+2026-10-07,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,423.18,4393,265,7,1113.31
+2026-10-07,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,292.22,20422,223,6,892.01
+2026-10-07,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,361.28,12102,147,5,655.66
+2026-10-07,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,192.95,4719,91,5,546.49
+2026-10-07,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,855.58,7718,351,3,2475.92
+2026-10-07,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1084.16,56303,656,4,3349.75
+2026-10-07,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,739.69,32145,508,3,1992.89
+2026-10-07,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,666.71,55741,438,0,0.0
+2026-10-07,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.47,2361,169,5,1783.92
+2026-10-07,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,320.45,42502,229,5,1128.75
+2026-10-07,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,529.65,17641,220,7,1288.42
+2026-10-07,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,411.42,42973,321,4,930.53
+2026-10-08,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,438.79,4658,257,9,1379.26
+2026-10-08,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,320.25,20790,273,8,1195.89
+2026-10-08,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,324.58,10496,127,6,711.16
+2026-10-08,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,218.37,5412,92,4,408.26
+2026-10-08,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,898.5,8789,436,3,2545.6
+2026-10-08,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,999.56,49664,648,3,2723.79
+2026-10-08,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,793.85,31439,490,4,2729.98
+2026-10-08,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,686.36,53271,383,0,0.0
+2026-10-08,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.07,2401,212,5,1808.97
+2026-10-08,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,300.77,37688,206,3,782.73
+2026-10-08,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,618.04,22658,295,10,1989.81
+2026-10-08,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,452.76,43397,283,3,738.36
+2026-10-09,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,405.19,4278,244,8,1176.9
+2026-10-09,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,300.27,20777,250,7,1010.29
+2026-10-09,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,374.52,12831,147,5,610.37
+2026-10-09,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,206.47,4937,79,4,473.93
+2026-10-09,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,909.81,8913,424,3,2391.87
+2026-10-09,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1101.14,54116,674,5,4598.35
+2026-10-09,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,821.45,32256,499,4,2853.93
+2026-10-09,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,730.4,63802,531,0,0.0
+2026-10-09,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.86,2634,225,7,2381.94
+2026-10-09,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,290.56,34537,185,4,951.6
+2026-10-09,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,571.49,20669,237,8,1645.36
+2026-10-09,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,496.86,53498,381,4,923.77
+2026-10-10,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,429.79,4719,312,9,1218.82
+2026-10-10,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,291.87,19176,254,8,1114.5
+2026-10-10,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,342.64,12198,151,5,558.21
+2026-10-10,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,176.75,4799,90,4,481.04
+2026-10-10,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,811.04,6961,317,2,1774.58
+2026-10-10,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,938.14,45218,502,2,1793.17
+2026-10-10,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,841.0,31830,504,3,2154.02
+2026-10-10,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,735.15,61651,544,0,0.0
+2026-10-10,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,242.59,2630,218,7,2115.81
+2026-10-10,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,286.4,34532,159,4,997.27
+2026-10-10,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,536.61,19579,239,8,1656.6
+2026-10-10,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,411.65,39295,266,3,769.46
+2026-10-11,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,392.12,4438,285,10,1585.39
+2026-10-11,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,304.81,21019,226,7,1019.84
+2026-10-11,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,377.5,12931,159,8,1023.61
+2026-10-11,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,204.85,5283,93,5,536.43
+2026-10-11,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,939.92,8408,460,4,3252.65
+2026-10-11,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,880.4,45755,539,3,2711.15
+2026-10-11,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,874.39,37739,611,5,3757.04
+2026-10-11,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,712.08,61568,534,0,0.0
+2026-10-11,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.1,2625,213,6,1861.37
+2026-10-11,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,318.01,37183,174,4,1035.53
+2026-10-11,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,595.01,22297,252,10,2116.67
+2026-10-11,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,445.65,47712,359,5,1183.22
+2026-10-12,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,407.64,4259,279,8,1194.38
+2026-10-12,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,306.43,21498,239,5,728.15
+2026-10-12,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,338.48,11167,131,5,557.88
+2026-10-12,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,178.14,4125,72,3,338.76
+2026-10-12,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,962.07,9255,474,3,2559.92
+2026-10-12,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,884.94,47815,641,4,3390.69
+2026-10-12,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,812.9,33805,541,4,3050.04
+2026-10-12,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,744.9,59062,525,0,0.0
+2026-10-12,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.86,2613,186,5,1772.32
+2026-10-12,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,297.0,34646,190,3,764.71
+2026-10-12,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,585.23,22254,296,9,1823.21
+2026-10-12,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,465.19,43353,316,4,989.67
+2026-10-13,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,367.33,3798,255,7,953.11
+2026-10-13,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,282.42,19285,254,7,1046.09
+2026-10-13,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,311.95,9943,125,5,658.25
+2026-10-13,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,178.68,4736,90,5,569.46
+2026-10-13,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,856.54,7674,407,3,2460.2
+2026-10-13,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,941.68,50097,598,3,2416.61
+2026-10-13,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,731.48,28451,377,3,1971.94
+2026-10-13,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,622.05,48518,362,0,0.0
+2026-10-13,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.55,2456,177,6,2115.53
+2026-10-13,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,309.24,38952,187,4,995.51
+2026-10-13,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,618.46,23427,262,8,1668.39
+2026-10-13,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,455.76,48323,368,4,982.36
+2026-10-14,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,366.95,4232,275,8,1120.27
+2026-10-14,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,299.35,20555,271,6,920.41
+2026-10-14,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,312.78,9806,122,4,477.84
+2026-10-14,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,189.74,4935,82,4,483.21
+2026-10-14,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,1007.59,8577,387,3,2752.06
+2026-10-14,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,893.8,43127,492,4,3070.9
+2026-10-14,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,858.95,35255,483,3,2239.54
+2026-10-14,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,704.47,61813,487,0,0.0
+2026-10-14,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.54,2567,219,6,1859.9
+2026-10-14,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,269.71,36096,185,4,954.78
+2026-10-14,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,557.67,19565,246,10,2033.17
+2026-10-14,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,417.85,44905,332,4,1044.33
+2026-10-15,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,357.32,3782,218,7,1126.55
+2026-10-15,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,299.5,21645,285,7,1052.91
+2026-10-15,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,330.37,11595,150,6,671.54
+2026-10-15,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,193.82,4773,76,4,435.23
+2026-10-15,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,903.38,8743,460,4,3648.52
+2026-10-15,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,957.03,46288,540,4,3101.62
+2026-10-15,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,871.58,32502,487,4,2817.09
+2026-10-15,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,706.27,63745,567,0,0.0
+2026-10-15,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.38,2326,165,4,1372.53
+2026-10-15,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,278.05,37662,193,4,1004.58
+2026-10-15,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,629.18,23995,313,12,2181.68
+2026-10-15,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,409.29,40971,287,3,693.31
+2026-10-16,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,390.94,4612,283,10,1394.17
+2026-10-16,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,305.24,19577,216,6,913.51
+2026-10-16,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,340.65,11501,149,6,704.97
+2026-10-16,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,221.18,5295,92,4,425.49
+2026-10-16,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,886.09,7479,401,4,3614.23
+2026-10-16,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1083.43,58339,703,5,4619.18
+2026-10-16,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,751.86,30454,471,3,2112.94
+2026-10-16,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,627.64,52869,423,0,0.0
+2026-10-16,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.32,2321,192,6,2132.21
+2026-10-16,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,327.69,44259,229,4,1035.69
+2026-10-16,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,567.37,20127,266,10,1900.23
+2026-10-16,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,452.19,45704,355,4,961.08
+2026-10-17,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,414.16,4899,301,11,1654.55
+2026-10-17,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,283.33,18990,230,5,647.35
+2026-10-17,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,319.04,10998,129,5,569.21
+2026-10-17,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,180.22,4472,87,5,557.72
+2026-10-17,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,932.48,8903,468,3,2574.5
+2026-10-17,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1027.07,51610,591,3,2408.01
+2026-10-17,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,802.39,32707,501,3,2038.11
+2026-10-17,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,760.79,66167,537,0,0.0
+2026-10-17,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.72,2345,172,4,1418.02
+2026-10-17,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,295.68,39745,193,4,1047.08
+2026-10-17,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,543.73,20312,271,10,1861.81
+2026-10-17,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,432.4,44285,323,4,1070.0
+2026-10-18,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,430.83,4773,303,10,1577.91
+2026-10-18,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,298.22,19014,240,7,906.95
+2026-10-18,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,381.15,13799,176,7,839.64
+2026-10-18,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,222.21,5492,97,5,591.0
+2026-10-18,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,923.18,8557,423,3,2663.76
+2026-10-18,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,950.3,48361,588,3,2459.22
+2026-10-18,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,855.12,32393,486,4,2623.16
+2026-10-18,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,667.08,58938,480,0,0.0
+2026-10-18,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.93,2322,201,6,1862.91
+2026-10-18,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,294.7,34567,153,2,506.49
+2026-10-18,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,599.62,20065,257,9,1979.4
+2026-10-18,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,451.88,45064,329,4,971.54
+2026-10-19,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,409.09,4656,309,10,1507.57
+2026-10-19,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,271.13,18446,216,6,852.44
+2026-10-19,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,381.91,11850,142,6,737.94
+2026-10-19,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,223.81,5739,104,6,616.54
+2026-10-19,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,860.7,7268,392,3,2351.36
+2026-10-19,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1094.68,53120,686,5,4579.92
+2026-10-19,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,784.81,33219,473,4,2802.74
+2026-10-19,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,647.6,56856,469,0,0.0
+2026-10-19,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.27,2668,209,6,1903.47
+2026-10-19,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,313.73,42597,203,5,1271.55
+2026-10-19,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,624.21,23430,281,10,1906.41
+2026-10-19,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,465.86,46352,363,4,982.22
+2026-10-20,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,363.66,4276,273,7,966.02
+2026-10-20,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,276.28,18353,237,6,891.51
+2026-10-20,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,313.22,11324,145,5,625.85
+2026-10-20,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,192.98,5094,87,4,475.54
+2026-10-20,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,917.77,8550,422,3,2322.89
+2026-10-20,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1093.73,53973,719,4,3481.72
+2026-10-20,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,751.87,32442,537,5,3370.36
+2026-10-20,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,767.01,60842,464,0,0.0
+2026-10-20,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.62,2603,203,6,1869.67
+2026-10-20,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,286.26,33755,168,4,948.68
+2026-10-20,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,552.98,20207,224,9,1724.65
+2026-10-20,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,456.65,48663,343,4,980.64
+2026-10-21,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,358.28,4236,274,8,1138.78
+2026-10-21,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,277.77,19182,216,4,578.4
+2026-10-21,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,336.68,11877,150,5,572.36
+2026-10-21,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,216.08,5744,102,6,700.25
+2026-10-21,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,826.39,7694,405,3,2783.79
+2026-10-21,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,929.93,43368,521,3,2525.87
+2026-10-21,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,729.14,28233,390,3,2136.78
+2026-10-21,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,677.82,58876,483,0,0.0
+2026-10-21,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.35,2447,185,6,1934.39
+2026-10-21,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,311.34,38501,184,4,917.21
+2026-10-21,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,553.49,18717,215,8,1474.87
+2026-10-21,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,456.69,46705,327,4,913.18
+2026-10-22,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,381.88,4437,242,8,1147.77
+2026-10-22,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,293.04,18337,235,7,1050.81
+2026-10-22,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,319.1,11031,117,5,619.63
+2026-10-22,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,192.87,4890,91,5,522.33
+2026-10-22,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,974.89,9077,468,3,2353.77
+2026-10-22,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1099.04,52969,668,3,2315.4
+2026-10-22,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,735.11,30897,421,3,1906.48
+2026-10-22,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,668.23,54480,402,0,0.0
+2026-10-22,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.41,2470,206,5,1485.32
+2026-10-22,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,324.07,38792,184,3,803.12
+2026-10-22,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,615.46,23697,267,8,1693.26
+2026-10-22,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,418.7,39266,291,3,779.2
+2026-10-23,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,389.79,4166,270,7,963.89
+2026-10-23,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,332.14,22415,297,8,1173.45
+2026-10-23,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,377.72,12338,146,5,623.79
+2026-10-23,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,196.56,4905,97,4,463.05
+2026-10-23,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,801.44,7057,379,3,2573.67
+2026-10-23,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1112.66,54435,660,4,3100.38
+2026-10-23,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,772.7,31351,407,3,1947.35
+2026-10-23,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,734.77,59606,447,0,0.0
+2026-10-23,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.52,2556,195,6,1838.19
+2026-10-23,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,304.56,39111,210,4,1052.1
+2026-10-23,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,552.37,19215,236,8,1685.17
+2026-10-23,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,485.77,51770,344,4,941.29
+2026-10-24,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,357.79,4120,229,7,1039.08
+2026-10-24,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,272.14,18667,222,5,653.53
+2026-10-24,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,314.03,11357,152,7,770.11
+2026-10-24,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,210.42,4885,89,4,439.02
+2026-10-24,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,885.8,8473,428,3,2763.97
+2026-10-24,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1034.68,50698,672,4,3230.96
+2026-10-24,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,751.23,31893,385,3,2242.62
+2026-10-24,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,665.78,58419,483,0,0.0
+2026-10-24,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.38,2359,200,5,1545.9
+2026-10-24,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,323.42,41626,202,4,973.86
+2026-10-24,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,647.72,24139,258,9,1846.16
+2026-10-24,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,484.53,46910,360,5,1248.59
+2026-10-25,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,399.95,4702,269,8,1099.26
+2026-10-25,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,313.53,22091,261,8,1028.08
+2026-10-25,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,311.36,10480,116,5,540.34
+2026-10-25,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,216.36,5118,98,5,526.16
+2026-10-25,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,934.91,8479,416,3,2518.73
+2026-10-25,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1039.87,49415,650,3,2445.83
+2026-10-25,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,789.09,31247,400,3,1925.72
+2026-10-25,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,670.38,56221,501,0,0.0
+2026-10-25,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.71,2450,211,5,1708.23
+2026-10-25,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,307.86,39774,202,5,1245.18
+2026-10-25,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,621.22,22922,265,11,1992.25
+2026-10-25,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,416.4,40482,280,3,774.07
+2026-10-26,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,387.71,4253,250,8,1215.56
+2026-10-26,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,292.54,20785,230,7,989.43
+2026-10-26,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,317.43,10001,113,4,482.95
+2026-10-26,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,188.07,4710,86,4,446.4
+2026-10-26,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,816.41,7406,378,2,1668.73
+2026-10-26,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,897.63,45320,591,4,3545.93
+2026-10-26,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,849.32,36205,524,4,2577.17
+2026-10-26,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,755.48,64064,472,0,0.0
+2026-10-26,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.53,2332,167,4,1286.3
+2026-10-26,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,265.09,32644,152,3,781.11
+2026-10-26,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,589.34,19816,245,10,2025.18
+2026-10-26,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,495.09,46736,301,4,968.28
+2026-10-27,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,425.31,4593,297,8,1169.52
+2026-10-27,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,317.08,19725,249,5,714.53
+2026-10-27,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,316.37,10464,135,5,651.04
+2026-10-27,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,208.41,5423,90,4,469.76
+2026-10-27,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,917.58,8891,393,2,1802.24
+2026-10-27,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,924.46,45825,522,3,2489.22
+2026-10-27,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,731.69,27609,351,3,2229.44
+2026-10-27,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,775.39,70067,539,0,0.0
+2026-10-27,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.5,2685,198,6,2051.09
+2026-10-27,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,292.26,36675,168,4,978.68
+2026-10-27,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,653.71,22940,247,8,1509.22
+2026-10-27,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,492.55,48562,303,3,729.15
+2026-10-28,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,396.9,4356,254,7,946.26
+2026-10-28,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,305.7,20937,222,5,768.1
+2026-10-28,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,311.81,11018,138,5,572.8
+2026-10-28,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,200.0,5198,95,5,600.27
+2026-10-28,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,1006.31,9885,501,4,3653.22
+2026-10-28,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1065.83,52180,646,4,3251.48
+2026-10-28,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,856.7,32339,438,4,2690.24
+2026-10-28,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,744.24,59731,479,0,0.0
+2026-10-28,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.54,2641,203,5,1811.18
+2026-10-28,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,298.67,38143,179,3,727.39
+2026-10-28,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,547.53,21228,277,10,1978.21
+2026-10-28,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,457.42,47236,304,3,720.22
+2026-10-29,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,381.62,4092,249,9,1306.93
+2026-10-29,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,330.33,21732,234,5,711.27
+2026-10-29,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,390.95,13337,171,7,901.88
+2026-10-29,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,179.25,4492,89,4,418.66
+2026-10-29,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,796.98,7656,362,3,2406.34
+2026-10-29,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,975.9,51252,630,4,3500.7
+2026-10-29,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,741.77,28600,378,3,1923.31
+2026-10-29,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,751.99,59114,455,0,0.0
+2026-10-29,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.07,2436,215,5,1592.83
+2026-10-29,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,317.95,38819,190,4,967.55
+2026-10-29,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,536.27,19419,208,8,1547.05
+2026-10-29,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,449.39,44246,292,3,677.04
+2026-10-30,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,440.83,4848,325,8,1227.35
+2026-10-30,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,316.14,21668,235,5,649.97
+2026-10-30,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,372.44,13287,171,7,846.5
+2026-10-30,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,204.25,5062,95,5,531.39
+2026-10-30,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,952.07,9004,473,4,3587.67
+2026-10-30,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,954.22,45717,611,4,3249.22
+2026-10-30,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,804.48,30058,317,2,1393.21
+2026-10-30,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,726.1,57966,448,0,0.0
+2026-10-30,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.17,2630,192,4,1320.49
+2026-10-30,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,303.98,40035,221,4,929.86
+2026-10-30,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,553.55,19045,252,8,1449.29
+2026-10-30,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,480.04,50066,391,5,1284.03
+2026-10-31,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,385.05,4082,243,7,1134.74
+2026-10-31,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,271.76,17465,188,5,686.26
+2026-10-31,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,380.58,13647,166,6,780.35
+2026-10-31,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,221.36,5424,91,4,419.08
+2026-10-31,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,885.7,8413,391,3,2622.78
+2026-10-31,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,951.63,44094,493,3,2374.93
+2026-10-31,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,869.71,32848,348,3,2235.59
+2026-10-31,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,663.47,56821,453,0,0.0
+2026-10-31,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.98,2489,203,6,1865.09
+2026-10-31,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,327.62,41888,224,5,1170.57
+2026-10-31,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,652.41,21591,247,7,1291.24
+2026-10-31,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,501.23,54392,418,4,1047.2
+2026-11-01,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,361.36,4240,266,7,1016.3
+2026-11-01,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,330.13,21272,279,8,1015.37
+2026-11-01,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,327.71,10436,131,4,480.46
+2026-11-01,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,187.12,4731,77,3,362.39
+2026-11-01,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,860.36,7375,335,3,2364.26
+2026-11-01,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,982.83,51802,649,3,2671.49
+2026-11-01,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,800.14,34122,358,3,2275.85
+2026-11-01,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,674.71,58911,524,0,0.0
+2026-11-01,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,243.83,2534,182,4,1322.31
+2026-11-01,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,293.38,36344,176,3,778.22
+2026-11-01,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,995.28,35297,429,16,3508.71
+2026-11-01,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,490.4,47389,324,4,983.83
+2026-11-02,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,445.4,5040,294,9,1253.62
+2026-11-02,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,335.88,24317,299,9,1198.18
+2026-11-02,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,359.32,12218,137,5,553.94
+2026-11-02,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,216.47,5176,102,4,457.09
+2026-11-02,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,862.06,7658,387,3,2790.52
+2026-11-02,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,880.22,42343,551,3,2597.07
+2026-11-02,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,894.99,37388,406,3,2049.11
+2026-11-02,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,735.65,62366,502,0,0.0
+2026-11-02,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,247.22,2455,183,5,1572.43
+2026-11-02,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,329.43,41356,218,4,995.32
+2026-11-02,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,895.77,33935,449,16,3215.32
+2026-11-02,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,452.97,43134,283,3,798.28
+2026-11-03,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,396.19,4305,279,10,1610.33
+2026-11-03,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,267.11,18153,235,7,906.11
+2026-11-03,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,320.92,11140,121,5,636.39
+2026-11-03,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,201.02,5064,82,4,483.73
+2026-11-03,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,942.12,8635,429,4,3575.99
+2026-11-03,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,915.97,44515,517,3,2416.19
+2026-11-03,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,775.19,31822,315,2,1316.24
+2026-11-03,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,711.85,63838,471,0,0.0
+2026-11-03,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.31,2319,167,5,1768.43
+2026-11-03,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,278.52,35249,189,4,974.32
+2026-11-03,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,854.91,30816,358,14,2685.34
+2026-11-03,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,440.06,42986,323,4,977.07
+2026-11-04,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,407.56,4240,236,8,1250.86
+2026-11-04,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,290.81,18887,217,5,735.85
+2026-11-04,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,339.87,11282,135,6,757.01
+2026-11-04,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,177.23,4366,78,4,469.88
+2026-11-04,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,881.62,8049,440,3,2545.55
+2026-11-04,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1002.83,47665,595,4,3333.14
+2026-11-04,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,711.79,27675,276,2,1475.57
+2026-11-04,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,635.84,55466,399,0,0.0
+2026-11-04,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.15,2456,176,5,1719.65
+2026-11-04,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,298.76,40209,210,4,1016.79
+2026-11-04,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,1074.76,36532,478,14,2707.23
+2026-11-04,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,451.97,49075,384,4,952.47
+2026-11-05,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,382.05,4418,288,9,1352.96
+2026-11-05,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,294.26,21135,242,7,1039.19
+2026-11-05,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,379.96,13177,147,5,604.42
+2026-11-05,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,193.94,4876,88,5,535.23
+2026-11-05,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,965.11,9216,507,4,3094.79
+2026-11-05,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,955.42,47520,558,3,2460.01
+2026-11-05,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,756.52,28892,261,2,1484.69
+2026-11-05,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,715.47,60059,531,0,0.0
+2026-11-05,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.75,2404,171,5,1508.74
+2026-11-05,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,306.93,40436,223,5,1325.17
+2026-11-05,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,959.59,33344,417,13,2449.73
+2026-11-05,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,486.54,51577,397,4,920.17
+2026-11-06,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,361.14,3838,255,7,1083.36
+2026-11-06,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,282.55,17688,222,5,637.93
+2026-11-06,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,366.44,13181,171,6,681.5
+2026-11-06,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,203.94,5251,96,4,476.25
+2026-11-06,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,862.07,7431,341,3,2794.85
+2026-11-06,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,973.96,52631,613,4,3211.89
+2026-11-06,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,808.78,34601,314,3,2070.54
+2026-11-06,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,730.06,64839,560,0,0.0
+2026-11-06,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,249.55,2485,189,5,1732.62
+2026-11-06,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,299.75,35058,158,3,804.6
+2026-11-06,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,982.53,34863,377,11,2099.32
+2026-11-06,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,492.45,46666,305,4,906.48
+2026-11-07,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,409.48,4233,245,0,0.0
+2026-11-07,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,267.6,18330,217,5,733.93
+2026-11-07,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,323.02,10294,118,4,485.68
+2026-11-07,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,180.59,4478,86,4,436.6
+2026-11-07,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,799.29,7251,327,3,2362.3
+2026-11-07,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1018.72,52164,607,4,3171.44
+2026-11-07,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,736.58,27519,233,2,1504.56
+2026-11-07,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,696.68,61511,444,0,0.0
+2026-11-07,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.52,2626,208,5,1661.7
+2026-11-07,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,300.49,38378,178,3,705.52
+2026-11-07,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,874.09,32573,426,15,3234.37
+2026-11-07,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,397.63,37130,259,3,760.56
+2026-11-08,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,418.14,4856,309,0,0.0
+2026-11-08,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,266.23,18057,218,5,754.67
+2026-11-08,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,315.08,10372,117,5,634.08
+2026-11-08,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,210.12,5649,95,5,603.12
+2026-11-08,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,800.9,7146,374,3,2469.46
+2026-11-08,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1074.53,54057,714,3,2774.56
+2026-11-08,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,783.1,31797,243,2,1465.45
+2026-11-08,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,730.04,64432,496,0,0.0
+2026-11-08,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,244.98,2276,204,6,1971.97
+2026-11-08,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,299.81,35873,197,4,1027.28
+2026-11-08,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,890.66,31185,405,16,2939.13
+2026-11-08,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,473.48,48519,312,4,1034.54
+2026-11-09,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,423.57,4998,324,0,0.0
+2026-11-09,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,317.64,20106,259,7,967.32
+2026-11-09,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,377.31,12030,157,6,786.37
+2026-11-09,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,201.52,4702,77,5,581.62
+2026-11-09,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,846.43,7300,342,2,1685.69
+2026-11-09,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,936.79,46895,618,4,3543.07
+2026-11-09,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,779.27,29817,259,2,1523.68
+2026-11-09,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,754.73,63852,460,0,0.0
+2026-11-09,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,246.96,2344,201,4,1317.11
+2026-11-09,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,265.18,35350,190,4,1020.95
+2026-11-09,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,950.2,34854,390,13,2779.16
+2026-11-09,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,462.88,47881,302,3,780.18
+2026-11-10,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,394.44,4273,275,0,0.0
+2026-11-10,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,266.99,16925,188,4,611.26
+2026-11-10,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,338.44,11802,155,6,776.72
+2026-11-10,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,194.93,4873,97,5,603.74
+2026-11-10,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,832.92,7192,330,3,2295.18
+2026-11-10,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,922.08,43040,511,3,2422.91
+2026-11-10,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,771.64,32971,260,2,1403.88
+2026-11-10,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,679.28,52974,464,0,0.0
+2026-11-10,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.83,2291,177,5,1693.53
+2026-11-10,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,291.06,36254,189,4,999.62
+2026-11-10,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,928.6,30816,330,13,2695.44
+2026-11-10,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,456.2,46005,341,5,1307.22
+2026-11-11,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,423.98,5089,293,0,0.0
+2026-11-11,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,328.18,23198,284,7,891.15
+2026-11-11,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,340.95,10932,136,5,631.49
+2026-11-11,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,189.98,4716,83,5,566.37
+2026-11-11,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,965.86,8539,415,4,3542.6
+2026-11-11,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1045.8,54221,598,4,3621.6
+2026-11-11,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,856.38,35114,239,2,1505.67
+2026-11-11,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,643.24,51634,380,0,0.0
+2026-11-11,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,245.37,2283,203,5,1587.1
+2026-11-11,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,331.95,43605,209,4,921.69
+2026-11-11,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,904.75,32870,384,16,3050.78
+2026-11-11,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,418.03,39237,271,4,1027.42
+2026-11-12,Olive & Thyme Bistro,Google,Google_Search_Reservations,12600.0,426.75,4886,269,0,0.0
+2026-11-12,Olive & Thyme Bistro,Google,Google_PMax_GiftCards,9400.0,304.23,19743,251,6,816.94
+2026-11-12,Olive & Thyme Bistro,Meta,Meta_Lookalike_Diners,11000.0,385.07,12776,146,6,685.4
+2026-11-12,Olive & Thyme Bistro,Meta,Meta_Retargeting_Menu,6300.0,213.03,5747,112,6,640.68
+2026-11-12,Nordwood Furniture,Google,Google_Search_Sofas,28400.0,995.02,9398,441,3,2574.76
+2026-11-12,Nordwood Furniture,Google,Google_Shopping_Catalog,31500.0,1060.9,51575,606,4,3135.67
+2026-11-12,Nordwood Furniture,Meta,Meta_Advantage_Catalog,25200.0,762.93,29826,235,2,1453.76
+2026-11-12,Nordwood Furniture,Meta,Meta_Video_Prospecting,22000.0,746.13,63245,559,0,0.0
+2026-11-12,PeakForm Fitness,Google,Google_Search_Memberships,7500.0,248.54,2547,188,6,1992.59
+2026-11-12,PeakForm Fitness,Google,Google_Display_Remarketing,9400.0,301.53,36696,201,3,725.81
+2026-11-12,PeakForm Fitness,Meta,Meta_Leads_FreeTrial,18900.0,859.99,31147,374,15,3100.69
+2026-11-12,PeakForm Fitness,Meta,Meta_Reels_Awareness,14200.0,458.4,46558,332,4,1068.96
