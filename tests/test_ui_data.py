@@ -196,3 +196,14 @@ def test_portfolio_totals_on_clean_data_are_empty(clean):
     _, findings = clean
     assert u.portfolio_totals(findings) == {"at_risk": 0.0, "upside": 0.0, "n_open": 0,
                                             "n_accounts": 0, "accounts": []}
+
+
+# --- copy button: AI text must stay data inside the script ---
+
+def test_copy_button_cannot_be_broken_out_of_by_ai_text():
+    import components as c
+    evil = 'Hi</script><script>alert("x")</script> & <b>'
+    html = c.copy_button_html(evil)
+    script = html.split("<script>", 1)[1]
+    assert script.count("</script>") == 1          # only our own closing tag
+    assert "<b>" not in html and "alert(\"x\")</script>" not in html
