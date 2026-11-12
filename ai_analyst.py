@@ -34,7 +34,7 @@ EFFORT = "low"                  # least thinking; temperature isn't settable on 
                                 # so stability comes from low effort + JSON schema + the cache
 MAX_TOKENS = 4_000              # ~4x a typical answer: room for thinking, never truncated
 TIMEOUT_SECONDS = 60
-PROMPT_VERSION = 1              # bump when a prompt or schema changes: old cache entries stop matching
+PROMPT_VERSION = 2              # bump when a prompt or schema changes: old cache entries stop matching
 
 # Haiku 5.5 list prices, USD per million tokens (prompts up to 100K tokens; ours are ~1-3K).
 PRICE_INPUT_PER_MTOK = 0.10
@@ -82,8 +82,14 @@ evidence. It is a hypothesis: say "likely" or "may", never claim certainty.
 money at stake from the facts.
 - next_steps: three or four short imperative steps for the account manager, most urgent first.
 - client_email_draft: a short plain-text email to the client. Start with "Hi [Client name]," and \
-end with "Best,\\n[Your name]". Calm and jargon-free: what we found, why it matters, what we are \
-doing about it. No subject line."""
+end with "Best,\\n[Your name]". Calm and jargon-free: what we found, why it matters, what we \
+will do about it. No subject line.
+
+Nothing has been done yet: this is a draft written the moment the issue was found, and the \
+account manager decides what happens. Write every action as a plan or a recommendation ("we \
+will check", "we recommend pausing", "we suggest"). Never say or imply that an action has \
+already happened or is happening now: no "we have paused", "we've fixed", "we are pausing it \
+now", "we have stopped"."""
 
 EXPLAIN_SCHEMA = {
     "type": "object",
