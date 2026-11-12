@@ -4,6 +4,7 @@ HTML builders for the dashboard. Rendering only: values arrive already computed
 """
 
 import base64
+import json
 from html import escape
 
 import theme
@@ -249,3 +250,110 @@ def page_header(summary):
   <h1>Triage</h1>
   <div class="sub">Issues ranked by money at stake. Every figure is computed from account data, not estimated by AI.</div>
 </div>"""
+
+
+# ---------------------------------------------------------------------------
+# AI analysis (text from ai_analyst.py, already checked by verifier.py)
+# ---------------------------------------------------------------------------
+
+CHECK = ('<svg width="10" height="10" viewBox="0 0 10 10"><path d="M2 5.2 4.2 7.4 8 3" '
+         'stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+CROSS = ('<svg width="10" height="10" viewBox="0 0 10 10"><path d="M3 3 7 7M7 3 3 7" '
+         'stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>')
+
+
+def ai_badge(verification):
+    """Verified (green) or Blocked (red): reuses the severity chip styles."""
+    ok = verification.ok
+    css, color, icon = ("opp", theme.SEVERITY[theme.OPPORTUNITY]["solid"], CHECK) if ok else \
+        ("crit", theme.SEVERITY[theme.CRITICAL]["solid"], CROSS)
+    label = "Verified" if ok else "Blocked: unverified numbers"
+    tip = (f"All {verification.checked} numbers match Spendhound's computed values" if ok
+           else "The AI wrote numbers Spendhound didn't compute")
+    img = svg_img(icon.replace("currentColor", color), 10, 10)
+    return f'<span class="status {css}" title="{escape(tip)}">{img}{label}</span>'
+
+
+def _blocked_note(verification):
+    nums = ", ".join(verification.unknown)
+    return (f'<div class="ai-blocked">This text is hidden because it contains numbers that '
+            f'Spendhound did not compute: <b>{escape(nums)}</b>. The evidence and figures above '
+            f'are unaffected.</div>')
+
+
+def ai_section(analysis):
+    c, v = analysis.content, analysis.verification
+    head = f'<h3>AI analysis {ai_badge(v)}</h3>'
+    if not v.ok:
+        return f'<div class="sec ai">{head}{_blocked_note(v)}</div>'
+    steps = "".join(f"<li>{escape(s)}</li>" for s in c["next_steps"])
+    return f"""
+<div class="sec ai">{head}
+  <div class="lbl">Likely root cause</div><p>{escape(c['root_cause_hypothesis'])}</p>
+  <div class="lbl">Business impact</div><p>{escape(c['business_impact'])}</p>
+  <div class="lbl">Next steps</div><ol class="steps">{steps}</ol>
+  <div class="lbl">Client email draft</div><div class="email">{escape(c['client_email_draft'])}</div>
+</div>"""
+
+
+def ai_unavailable(message, where="sec"):
+    return (f'<div class="{where} ai"><h3>AI analysis <span>unavailable</span></h3>'
+            f'<div class="muted">{escape(message)}</div></div>')
+
+
+def weekly_summary(analysis):
+    c, v = analysis.content, analysis.verification
+    head = (f'<div class="sect-h"><h2>Weekly summary {ai_badge(v)}</h2>'
+            f'<span>Written by AI from detector output · every number is checked</span></div>')
+    if not v.ok:
+        return f'{head}<div class="wk">{_blocked_note(v)}</div>'
+    links = "".join(f"<li>{escape(s)}</li>" for s in c["connections"]) or \
+        '<li class="muted">No related issues this week.</li>'
+    prios = "".join(f"<li>{escape(s)}</li>" for s in c["priorities"])
+    return f"""{head}
+<div class="wk">
+  <div class="hl">{escape(c['headline'])}</div>
+  <p>{escape(c['overview'])}</p>
+  <div class="cols">
+    <div><div class="lbl">Priorities</div><ol class="steps">{prios}</ol></div>
+    <div><div class="lbl">Related issues</div><ul class="links">{links}</ul></div>
+  </div>
+</div>"""
+
+
+def weekly_unavailable(message):
+    return (f'<div class="sect-h"><h2>Weekly summary</h2><span>AI unavailable</span></div>'
+            f'<div class="wk muted">{escape(message)}</div>')
+
+
+def copy_button_html(text, label="Copy client email"):
+    """A v2 secondary button that copies `text`. Runs in its own iframe (st.iframe), so the
+    button styles are repeated here; the values match styles.css.
+
+    `text` is AI output and this iframe runs scripts, so it goes in only as a JSON string with
+    <, > and & escaped: it can never close the <script> tag or become markup."""
+    def js_string(value):
+        return (json.dumps(value).replace("<", r"\u003c").replace(">", r"\u003e")
+                .replace("&", r"\u0026"))
+    return f"""<!doctype html><html><head>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@500&display=swap" rel="stylesheet">
+<style>
+  body {{ margin:0; font:500 13px {theme.FONT}; }}
+  button {{ height:32px; padding:0 12px; border-radius:6px; border:1px solid {theme.BORDER_STRONG};
+           background:{theme.SURFACE}; color:{theme.INK}; font:inherit; cursor:pointer; }}
+  button:hover {{ border-color:#A3ABB8; background:#F9FAFB; }}
+  button.done {{ color:{theme.SEVERITY[theme.OPPORTUNITY]['solid']}; border-color:{theme.SEVERITY[theme.OPPORTUNITY]['line']}; }}
+</style></head><body>
+<button id="b">{escape(label)}</button>
+<script>
+  const text = {js_string(text)};
+  const b = document.getElementById("b");
+  function fallback() {{
+    const t = document.createElement("textarea"); t.value = text; document.body.appendChild(t);
+    t.select(); const ok = document.execCommand("copy"); t.remove(); return ok;
+  }}
+  function done(ok) {{ b.textContent = ok ? "Copied" : "Copy failed"; b.classList.toggle("done", ok);
+                      setTimeout(() => {{ b.textContent = {js_string(label)}; b.classList.remove("done"); }}, 1600); }}
+  b.onclick = () => navigator.clipboard ? navigator.clipboard.writeText(text).then(() => done(true), () => done(fallback()))
+                                        : done(fallback());
+</script></body></html>"""

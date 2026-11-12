@@ -4,6 +4,8 @@ Spendhound triage dashboard. Layout only.
 Numbers come from detectors.py (findings) and ui_data.py (display aggregations); HTML comes from
 components.py; tokens and copy from theme.py and styles.css. Run:  streamlit run app.py
 
+AI text comes from ai_analyst.py and is shown only if verifier.py found no unknown numbers.
+
 Selection, filters and review state live in the URL (?issue=...&reviewed=...), because clicking a
 row in the HTML table is a link and starts a fresh Streamlit session.
 """
@@ -13,6 +15,7 @@ from urllib.parse import urlencode
 
 import streamlit as st
 
+import ai_analyst as ai
 import charts as ch
 import components as c
 import detectors as d
@@ -71,11 +74,26 @@ with st.container(key="page_header", horizontal=True, vertical_alignment="bottom
 # ---------- KPI strip ----------
 st.html(c.kpi_strip(u.kpis(df, findings)))
 
+
+
+def ai_result(spinner, fn, *args):
+    """(Analysis, None) or (None, reason). AI is optional: failures never break the page."""
+    try:
+        with st.spinner(spinner):
+            return fn(*args), None
+    except (ai.AIUnavailable, ai.AIError) as e:
+        return None, str(e)
+
+
 # ---------- Triage: toolbar + table (left) and detail panel (right) ----------
 left, right = st.columns([3, 1], gap="small")
 
 with left:
     with st.container(key="left"):
+        if findings:
+            with st.container(key="weekly"):
+                week, why_not = ai_result("Writing the weekly summary...", ai.analyse_week, findings)
+                st.html(c.weekly_summary(week) if week else c.weekly_unavailable(why_not))
         with st.container(key="triage"):
             # Counts on the severity filter reflect the other filters, so they match the table.
             base = u.filter_findings(findings, account=st.session_state.f_account,
@@ -149,6 +167,14 @@ with right:
             st.plotly_chart(fig, config=theme.PLOTLY_CONFIG, theme=None, key=f"chart-{fid}")
             st.html(c.detail_bottom(f, sev, u.key_numbers(f), theme.rule_lines(f.issue_type),
                                     theme.NEXT_STEPS[f.issue_type]))
+            analysis, why_not = ai_result("Writing AI analysis...", ai.analyse_issue, f)
+            if analysis is None:
+                st.html(c.ai_unavailable(why_not))
+            else:
+                st.html(c.ai_section(analysis))
+                if analysis.verified:
+                    with st.container(key="ai_copy"):
+                        st.iframe(c.copy_button_html(analysis.content["client_email_draft"]), height=34)
             with st.container(key="dfoot", horizontal=True):
                 if st.button("Undo review" if fid in reviewed else "Mark reviewed",
                              type="primary", key="b_review"):
