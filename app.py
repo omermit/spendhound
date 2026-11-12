@@ -45,3 +45,6 @@ with st.container(key="page_header", horizontal=True, vertical_alignment="bottom
         if st.button("Re-run checks", type="primary", key="rerun"):
             st.cache_data.clear()
             st.rerun()
+
+# ---------- KPI strip ----------
+st.html(c.kpi_strip(u.kpis(df, findings)))

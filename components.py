@@ -38,6 +38,40 @@ def appbar(n_issues, today):
 </header>"""
 
 
+def kpi_strip(k):
+    sev = theme.SEVERITY
+    # Alternate two shades within a severity so adjacent findings stay distinguishable.
+    seen, spans = {}, []
+    for s in k["at_risk_segments"]:
+        n = seen.get(s["severity"], 0)
+        seen[s["severity"]] = n + 1
+        color = sev[s["severity"]]["solid" if n % 2 == 0 else "solid_2"]
+        spans.append(f'<span style="width:{s["share"] * 100:.2f}%;background:{color}" '
+                     f'title="{sev[s["severity"]]["label"]} {ils(s["amount"])}"></span>')
+    legend = "".join(
+        f'<span><i style="background:{sev[s]["solid"]}"></i>{sev[s]["label"]} {ils(v)}</span>'
+        for s, v in k["at_risk_by_severity"].items())
+    counts = k["severity_counts"]
+    breakdown = " · ".join(f"{counts[s]} {sev[s]['label'].lower()}" for s in theme.SEVERITY_ORDER)
+    n_up = k["n_upside"]
+    return f"""
+<section class="kpis">
+  <div class="kpi"><div class="l">Money at risk</div>
+    <div class="v{' crit' if k['at_risk'] else ''}">{ils(k['at_risk'])}</div>
+    <div class="bar">{''.join(spans)}</div>
+    <div class="legend">{legend}</div></div>
+  <div class="kpi"><div class="l">Spend, last 30 days</div><div class="v">{ils(k['spend_30d'])}</div>
+    <div class="d"><span class="bad">{pct(k['pct_spend_at_risk'])}</span> of spend is at risk</div></div>
+  <div class="kpi"><div class="l">Upside found</div><div class="v">{ils(k['upside'])}</div>
+    <div class="d">{n_up} underfunded campaign{'s' if n_up != 1 else ''} · <span class="good">per month</span></div></div>
+  <div class="kpi"><div class="l">Open issues</div><div class="v">{k['n_open']}</div>
+    <div class="d">{breakdown}</div></div>
+  <div class="kpi"><div class="l">Accounts affected</div>
+    <div class="v">{k['accounts_affected']} <small>/ {k['n_accounts']}</small></div>
+    <div class="d">Accounts with at least one issue</div></div>
+</section>"""
+
+
 def page_header(summary):
     n = summary["n_accounts"]
     platforms = ", ".join("Google Ads" if p == "Google" else p for p in summary["platforms"])

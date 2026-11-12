@@ -46,6 +46,52 @@ def workspace_summary(df):
     }
 
 
+def severity_counts(findings):
+    counts = {s: 0 for s in theme.SEVERITY_ORDER}
+    for f in findings:
+        counts[severity_of(f)] += 1
+    return counts
+
+
+# ---------------------------------------------------------------------------
+# KPI strip
+# ---------------------------------------------------------------------------
+
+KPI_SPEND_DAYS = 30   # "Spend, last 30 days" and the "% of spend at risk" denominator
+
+
+def kpis(df, findings):
+    """All numbers for the KPI strip. "At risk" sums risk findings only; upside is kept separate."""
+    risk = [f for f in findings if f.kind == "risk"]
+    upside = [f for f in findings if f.kind == "opportunity"]
+    spend = float(d.campaign_summary(df, days=KPI_SPEND_DAYS)["cost"].sum())
+    at_risk = float(sum(f.money_at_risk_ils for f in risk))
+
+    by_severity = {s: 0.0 for s in (theme.CRITICAL, theme.WARNING)}
+    for f in risk:
+        by_severity[severity_of(f)] += f.money_at_risk_ils
+
+    # One bar segment per risk finding, critical first, each biggest-first.
+    ordered = sorted(risk, key=lambda f: (theme.SEVERITY_ORDER.index(severity_of(f)),
+                                          -f.money_at_risk_ils))
+    segments = [{"severity": severity_of(f), "amount": f.money_at_risk_ils,
+                 "share": f.money_at_risk_ils / at_risk} for f in ordered] if at_risk else []
+
+    return {
+        "spend_30d": spend,
+        "at_risk": at_risk,
+        "at_risk_by_severity": by_severity,
+        "at_risk_segments": segments,
+        "pct_spend_at_risk": at_risk / spend if spend else 0.0,
+        "upside": float(sum(f.money_at_risk_ils for f in upside)),
+        "n_upside": len(upside),
+        "n_open": len(findings),
+        "severity_counts": severity_counts(findings),
+        "accounts_affected": len({f.account for f in findings}),
+        "n_accounts": df["account"].nunique(),
+    }
+
+
 def export_frame(findings):
     """Findings as a flat table for the CSV export, in triage order."""
     return pd.DataFrame([{
