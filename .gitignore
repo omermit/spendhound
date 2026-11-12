@@ -14,6 +14,9 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-# Secrets (for later sprints: API keys live here, never in Git)
+# Secrets: API keys live here, never in Git (.env.example shows the expected variables)
 .env
 .streamlit/secrets.toml
+
+# AI responses cached on disk so the same finding is never paid for twice
+.cache/
