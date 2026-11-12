@@ -15,6 +15,10 @@ Definition of done:
 The 5 problems: zero-conversion burner, broken tracking, budget overpacing,
 creative fatigue, underfunded high-ROAS campaign.
 
+## Backlog
+
+- Sprint 2: detectors should return first_seen date so we can show days open.
+
 ## Architecture
 
 | File | Responsibility |
