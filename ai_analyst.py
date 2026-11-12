@@ -12,6 +12,7 @@ Run a full analysis (all findings + weekly summary) and print the cost:
 import hashlib
 import json
 import os
+import threading
 from dataclasses import dataclass, field
 from pathlib import Path
 
@@ -34,7 +35,7 @@ EFFORT = "low"                  # least thinking; temperature isn't settable on 
                                 # so stability comes from low effort + JSON schema + the cache
 MAX_TOKENS = 4_000              # ~4x a typical answer: room for thinking, never truncated
 TIMEOUT_SECONDS = 60
-PROMPT_VERSION = 2              # bump when a prompt or schema changes: old cache entries stop matching
+PROMPT_VERSION = 2             # bump when a prompt or schema changes: old cache entries stop matching
 
 # Haiku 5.5 list prices, USD per million tokens (prompts up to 100K tokens; ours are ~1-3K).
 PRICE_INPUT_PER_MTOK = 0.10
@@ -240,10 +241,29 @@ def cache_key(system, schema, facts):
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
 
 
+_key_locks = {}
+_key_locks_guard = threading.Lock()
+
+
+def _lock_for(path):
+    with _key_locks_guard:
+        return _key_locks.setdefault(str(path), threading.Lock())
+
+
 def _call(name, system, schema, facts, client=None, cache_dir=None):
-    """Structured call: cached answer if we have one, else ask the model. Returns the parsed JSON."""
+    """Structured call: cached answer if we have one, else ask the model. Returns the parsed JSON.
+
+    One lock per cache entry: Streamlit reruns every open browser session at once (e.g. after a
+    code change), and without it each session missed the cache and paid for the same answer.
+    The second caller waits, then finds the first caller's answer in the cache."""
     cache_dir = Path(cache_dir or CACHE_DIR)
     path = cache_dir / f"{cache_key(system, schema, facts)}.json"
+    with _lock_for(path):
+        return _cached_or_fresh(name, system, schema, facts, client, path)
+
+
+def _cached_or_fresh(name, system, schema, facts, client, path):
+    cache_dir = path.parent
     if path.exists():
         hit = json.loads(path.read_text(encoding="utf-8"))
         LEDGER.add(name, hit["usage"], cached=True)

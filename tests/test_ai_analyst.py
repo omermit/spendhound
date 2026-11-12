@@ -185,3 +185,25 @@ def test_full_run_prints_cost_and_cached_rerun_is_free(findings, tmp_path, capsy
 def test_without_a_key_the_ai_is_unavailable_not_crashing(findings):
     with pytest.raises(a.AIUnavailable):
         a.explain_issue(findings[0])
+
+
+def test_concurrent_requests_for_the_same_answer_pay_once(findings, tmp_path):
+    # Streamlit reruns every open session at once; they must not each pay for the same answer.
+    import threading
+    import time
+
+    class Slow(FakeClient):
+        def create(self, **kwargs):
+            time.sleep(0.2)
+            return super().create(**kwargs)
+
+    client = Slow()
+    results = []
+    threads = [threading.Thread(target=lambda: results.append(
+        a.explain_issue(findings[0], client, cache_dir=tmp_path))) for _ in range(4)]
+    for t in threads:
+        t.start()
+    for t in threads:
+        t.join()
+    assert len(client.requests) == 1
+    assert len(results) == 4 and all(r == results[0] for r in results)
