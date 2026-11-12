@@ -264,6 +264,8 @@ def _call(name, system, schema, facts, client=None, cache_dir=None):
     usage = {k: getattr(response.usage, k, 0) or 0 for k in
              ("input_tokens", "output_tokens", "cache_creation_input_tokens", "cache_read_input_tokens")}
     LEDGER.add(name, usage, cached=False)    # paid for even if unusable below
+    print(f"[ai] {name}: ${cost_usd(usage):.4f} ({usage['input_tokens']:,} in + "
+          f"{usage['output_tokens']:,} out tokens) | paid so far ${LEDGER.paid_usd:.4f}", flush=True)
 
     if response.stop_reason == "refusal":
         raise AIError("The model declined to answer.")
@@ -341,4 +343,7 @@ if __name__ == "__main__":
     if not Path(OUTPUT_FILE).exists():
         Path(OUTPUT_FILE).parent.mkdir(exist_ok=True)
         generate().to_csv(OUTPUT_FILE, index=False, date_format="%Y-%m-%d")
-    run_full_analysis(d.run_all(d.load_data(OUTPUT_FILE)))
+    try:
+        run_full_analysis(d.run_all(d.load_data(OUTPUT_FILE)))
+    except AIUnavailable as e:
+        sys.exit(f"AI unavailable: {e}")
