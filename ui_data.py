@@ -253,6 +253,27 @@ def account_rows(df, findings):
     return sorted(rows, key=lambda r: -r["at_risk"])
 
 
+def portfolio_totals(findings):
+    """Totals for the AI weekly summary, so the model quotes sums instead of adding them up.
+    Accounts with findings only, biggest money at risk first."""
+    accounts = []
+    for account in sorted({f.account for f in findings}):
+        mine = [f for f in findings if f.account == account]
+        accounts.append({
+            "account": account,
+            "n_findings": len(mine),
+            "at_risk": float(sum(f.money_at_risk_ils for f in mine if f.kind == "risk")),
+            "upside": float(sum(f.money_at_risk_ils for f in mine if f.kind == "opportunity")),
+        })
+    return {
+        "at_risk": float(sum(a["at_risk"] for a in accounts)),
+        "upside": float(sum(a["upside"] for a in accounts)),
+        "n_open": len(findings),
+        "n_accounts": len(accounts),
+        "accounts": sorted(accounts, key=lambda a: (-a["at_risk"], a["account"])),
+    }
+
+
 def export_frame(findings):
     """Findings as a flat table for the CSV export, in triage order."""
     return pd.DataFrame([{
