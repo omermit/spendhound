@@ -23,6 +23,8 @@ def _sev(f):
 def _layout(fig, **kw):
     fig.update_layout(template=theme.PLOTLY_TEMPLATE, height=HEIGHT, **kw)
     fig.update_xaxes(tickformat="%d %b", nticks=5)
+    # The template styles only the first y-axis; apply to secondary axes too, or labels get clipped.
+    fig.update_yaxes(automargin=True, tickfont=dict(size=11, color=theme.INK_3, family=theme.PLOT_FONT))
     return fig
 
 
@@ -30,7 +32,7 @@ def _band(fig, x0, x1, sev, text):
     fig.add_vrect(x0=x0, x1=x1, fillcolor=sev["tint"], opacity=1, line_width=0, layer="below")
     fig.add_annotation(x=x0, y=1, xref="x", yref="paper", text=text, showarrow=False,
                        xanchor="right", yanchor="top", xshift=-6,
-                       font=dict(size=11, color=sev["text"], family=theme.FONT),
+                       font=dict(size=11, color=sev["text"], family=theme.PLOT_FONT),
                        bgcolor="rgba(255,255,255,0.85)", borderpad=2)
 
 
@@ -126,10 +128,10 @@ def chart_winner(df, f):
     fig.add_vline(x=m["others_roas"], line=dict(color=theme.CONTEXT_LINE, width=1.25, dash="dot"),
                   annotation_text=f"Rest of account {m['others_roas']:.1f}",
                   annotation_position="top right", annotation_font=dict(size=11, color=theme.INK_2))
-    fig = _layout(fig, hovermode="closest", margin=dict(l=4, r=24, t=22, b=4))
+    fig = _layout(fig, hovermode="closest", margin=dict(l=16, r=28, t=22, b=4))
     fig.update_xaxes(range=[0, s["roas"].max() * 1.25], tickformat="", nticks=5,
                      showgrid=True, gridcolor=theme.GRID)
-    fig.update_yaxes(showgrid=False, tickfont=dict(family=theme.MONO, size=10, color=theme.INK_3))
+    fig.update_yaxes(showgrid=False, tickfont=dict(family=theme.PLOT_MONO, size=10, color=theme.INK_3))
     legend = [("This campaign", "blk", sev["solid"]), ("Other campaigns", "blk", theme.CONTEXT_BAR)]
     return fig, legend, f"ROAS, last {d.WINNER_WINDOW_DAYS} days"
 

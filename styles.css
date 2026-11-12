@@ -178,7 +178,9 @@
 ol.steps { margin:0; padding-left:18px; color:var(--ink); }
 ol.steps li { margin-bottom:6px; padding-left:2px; }
 ol.steps li span { color:var(--ink-3); }
-.st-key-detail [data-testid="stPlotlyChart"] { padding:0 12px; }
+/* No CSS padding here: it widens the chart past the panel, which clips the right axis.
+   Side spacing comes from the Plotly margins in theme.py instead. */
+.st-key-detail [data-testid="stPlotlyChart"] { padding:0; }
 .st-key-dfoot { padding:12px 16px; background:var(--surface-2); border-top:1px solid var(--border); gap:8px !important; }
 .st-key-dfoot [data-testid="stElementContainer"] { width:auto !important; }
 .st-key-client_text { padding:0 16px 12px; background:var(--surface-2); }

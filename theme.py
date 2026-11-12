@@ -38,6 +38,9 @@ SPARK_LINE = "#5B6475"
 
 FONT = '"IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif'
 MONO = '"IBM Plex Mono", ui-monospace, Menlo, monospace'
+# Plotly writes fonts into SVG style attributes, where double quotes break the attribute.
+PLOT_FONT = "IBM Plex Sans, Segoe UI, Roboto, sans-serif"
+PLOT_MONO = "IBM Plex Mono, Menlo, monospace"
 
 # ---------------------------------------------------------------------------
 # Severity: fixed lookup by issue type. Shape + label + color, never color alone.
@@ -167,18 +170,18 @@ def rule_lines(issue_type):
 # ---------------------------------------------------------------------------
 
 _axis = dict(
-    showgrid=False, zeroline=False, showline=False, ticks="",
-    tickfont=dict(size=11, color=INK_3, family=FONT), title=dict(text=""),
+    showgrid=False, zeroline=False, showline=False, ticks="", automargin=True,
+    tickfont=dict(size=11, color=INK_3, family=PLOT_FONT), title=dict(text=""),
 )
 
 pio.templates["spendhound"] = go.layout.Template(layout=dict(
-    font=dict(family=FONT, size=11, color=INK_3),
+    font=dict(family=PLOT_FONT, size=11, color=INK_3),
     paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
     colorway=[CONTEXT_LINE, CONTEXT_BAR],
     showlegend=False,
-    margin=dict(l=4, r=4, t=8, b=4),
+    margin=dict(l=16, r=16, t=8, b=4),   # 16px matches the panel padding
     hovermode="x unified",
-    hoverlabel=dict(bgcolor=SURFACE, bordercolor=BORDER, font=dict(family=FONT, size=12, color=INK)),
+    hoverlabel=dict(bgcolor=SURFACE, bordercolor=BORDER, font=dict(family=PLOT_FONT, size=12, color=INK)),
     xaxis=_axis,
     yaxis={**_axis, "showgrid": True, "gridcolor": GRID, "gridwidth": 1},
     bargap=0.3,

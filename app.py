@@ -145,7 +145,8 @@ with right:
             st.html(c.detail_top(f, sev, u.money_breakdown(f), note))
             fig, legend, window = ch.evidence_chart(df, f)
             st.html(c.chart_heading(legend, window))
-            st.plotly_chart(fig, config=theme.PLOTLY_CONFIG, key=f"chart-{fid}")
+            # theme=None: use our Plotly template instead of Streamlit's chart theme.
+            st.plotly_chart(fig, config=theme.PLOTLY_CONFIG, theme=None, key=f"chart-{fid}")
             st.html(c.detail_bottom(f, sev, u.key_numbers(f), theme.rule_lines(f.issue_type),
                                     theme.NEXT_STEPS[f.issue_type]))
             with st.container(key="dfoot", horizontal=True):
