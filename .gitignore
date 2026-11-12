@@ -1,0 +1,19 @@
+# Virtual environment: rebuilt from requirements.txt, never committed
+.venv/
+venv/
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Local tooling / editor / OS files
+.claude/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Secrets (for later sprints: API keys live here, never in Git)
+.env
+.streamlit/secrets.toml
